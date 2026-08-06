@@ -179,6 +179,7 @@ function buildPage(meta, bodyHtml, slug, allArticles) {
 </div>
 
 <nav class="nav-links">
+<a href="/articles/" style="color:var(--accent-gold);font-weight:700">📚 כל המאמרים</a>
 <a href="/">דף הבית</a>
 <a href="/#services">התמחות</a>
 <a href="https://wa.me/972587008133?text=שלום%2C%20אני%20צריך%20עזרה%20דחופה%20בנושא%20נזיקין" target="_blank" class="btn btn-whatsapp pulse" style="padding:6px 16px;font-size:1rem;border-radius:20px;border:2px solid var(--whatsapp-green);background:#25D366;color:#0a0a1e;font-weight:800;white-space:nowrap">

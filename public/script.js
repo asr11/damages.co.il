@@ -127,17 +127,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            const tokens = query.toLowerCase().split(/\s+/).filter(t => t.length > 1);
+            
             const results = searchIndex.filter(item => {
-                return (item.title || '').toLowerCase().includes(query) || 
-                       (item.title_he || '').includes(query) ||
-                       (item.description || '').toLowerCase().includes(query) || 
-                       (item.description_he || '').includes(query) ||
-                       (item.keywords || '').toLowerCase().includes(query) ||
-                       (item.keywords_he || '').includes(query) ||
-                       (item.category || '').includes(query) ||
-                       (item.source || '').includes(query) ||
-                       (item.era || '').includes(query) ||
-                       (item.content_text || '').includes(query);
+                const haystack = [
+                    item.title || '',
+                    item.title_he || '',
+                    item.description || '',
+                    item.description_he || '',
+                    item.keywords || '',
+                    item.keywords_he || '',
+                    item.category || '',
+                    item.source || '',
+                    item.era || '',
+                    item.content_text || ''
+                ].join(' ').toLowerCase();
+
+                return tokens.some(token => haystack.includes(token));
             });
 
             if (results.length > 0) {
