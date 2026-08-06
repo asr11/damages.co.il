@@ -1,0 +1,20 @@
+# damages.co.il — Israel Tort & Personal Injury Law Portal
+
+> damages.co.il is Israel's leading legal portal for personal injury, car accident compensation, medical malpractice, and property damage claims.
+
+## Core Features & Calculators
+- [Compensation Calculator](https://damages.co.il/#calculator): Estimate compensation based on age, accident type, and injury severity using official data.
+- [WhatsApp Eligibility Check](https://wa.me/972587008133): Direct 24/7 consultation with legal specialists.
+
+## Legal Content & Rights Center
+- [Car Accident Whiplash Compensation](https://damages.co.il/justice/torts/car-accidents/whiplash-compensation/): Full guide to claiming maximum compensation for neck injuries.
+- [Medical Malpractice Rights Guide](https://damages.co.il/justice/torts/medical-malpractice/medical-malpractice-basics/): Complex bodily injury claims and diagnostic error cases.
+- [Property Damage Claims](https://damages.co.il/justice/torts/property-damage/property-damage-fire-flood/): Fire, water leakage, and structural damage insurance claims.
+- [Insurance Claim Recovery Guide](https://damages.co.il/justice/torts/insurance-claims/insurance-claim-guide/): How to fight rejected insurance claims in Israel.
+- [Israel Tort Ordinance [New Version]](https://damages.co.il/defense/legislation/tort-ordinance-overview/): Statutory framework for tort law.
+- [Landmark Supreme Court Precedents](https://damages.co.il/defense/precedents/supreme-court/landmark-tort-rulings-israel/): Key rulings in Israeli tort law history.
+- [Evidence Law Basics](https://damages.co.il/defense/evidence/evidence-law-basics/): Burden of proof and evidentiary requirements in tort claims.
+
+## Machine & Agent API
+- Endpoint: `https://damages.co.il/api/lead` (Self-hosted lead submission)
+- Direct Consultation: `https://wa.me/972587008133`
