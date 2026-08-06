@@ -83,17 +83,24 @@ document.addEventListener('DOMContentLoaded', () => {
             resultDiv.classList.add('pulse');
             setTimeout(() => resultDiv.classList.remove('pulse'), 2000);
             
-            // Update WhatsApp Buttons with calculated data
-            const typeNames = {'car_accident':'תאונת דרכים','medical':'רשלנות רפואית','work':'תאונת עבודה','slip':'החלקה/נפילה','assault':'תקיפה/אלימות','property':'נזק לרכוש','insurance':'תביעת ביטוח','other':'אחר'};
+            // Update WhatsApp Buttons with detailed calculation data + URL
+            const typeNames = {'car_accident':'תאונת דרכים','medical':'רשלנות רפואית','work':'תאונת עבודה','slip':'החלקה/נפילה','assault':'תקיפה/אלימות','property':'נזק לרכוש','insurance':'תביעות ביטוח','other':'אחר'};
+            const severityNames = {'low':'קלה','medium':'בינונית','high':'קשה'};
             const typeName = typeNames[type] || type;
-            const message = `שלום, בדקתי במחשבון הפיצויים באתר damages.co.il.\nסוג פגיעה: ${typeName}\nסכום משוער: ${formatter.format(finalAmount)}\nאשמח לבדוק זכאות.`;
+            const severityName = severityNames[severity] || severity;
+            const currentUrl = window.location.href;
+
+            const message = `שלום, ביצעתי חישוב במחשבון הפיצויים:\n• סכום משוער: ${formatter.format(finalAmount)}\n• סוג פגיעה: ${typeName}\n• חומרה: ${severityName}\n• גיל הנפגע: ${age}\n• מגיע מדף: ${currentUrl}\nאני מעוניין בבדיקת זכאות חינם למימוש הפיצוי.`;
             const encodedMessage = encodeURIComponent(message);
             const waUrl = `https://wa.me/972587008133?text=${encodedMessage}`;
             
+            const calcBtn = document.getElementById('calcWhatsappBtn');
+            if (calcBtn) calcBtn.href = waUrl;
+
             const ceoBtn = document.getElementById('whatsapp-ceo-btn');
             if (ceoBtn) ceoBtn.href = waUrl;
             
-            const heroBtns = document.querySelectorAll('.btn-whatsapp');
+            const heroBtns = document.querySelectorAll('.btn-whatsapp:not(#calcWhatsappBtn)');
             heroBtns.forEach(btn => btn.href = waUrl);
         });
     }
