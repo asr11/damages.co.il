@@ -69,7 +69,7 @@ function mdToHtml(md) {
 function buildPage(meta, bodyHtml, slug) {
     const title = meta.title_he || meta.title || 'מאמר';
     const desc = meta.description_he || meta.description || '';
-    const canonical = `https://damages.co.il/${slug}`;
+    const canonical = `https://damages.co.il/${slug}/`;
     
     // Schema.org JSON-LD
     const schema = JSON.stringify({
@@ -86,6 +86,28 @@ function buildPage(meta, bodyHtml, slug) {
         "dateModified": meta.updated || "2026-08-06"
     });
 
+    // Breadcrumb Schema
+    const slugParts = slug.split('/');
+    const breadcrumbItems = [
+        { name: 'דף הבית', url: 'https://damages.co.il/' }
+    ];
+    let breadcrumbPath = '';
+    for (let i = 0; i < slugParts.length - 1; i++) {
+        breadcrumbPath += slugParts[i] + '/';
+        breadcrumbItems.push({ name: slugParts[i], url: `https://damages.co.il/${breadcrumbPath}` });
+    }
+    breadcrumbItems.push({ name: title, url: canonical });
+    const breadcrumbSchema = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": breadcrumbItems.map((item, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": item.name,
+            "item": item.url
+        }))
+    });
+
     return `<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -93,8 +115,8 @@ function buildPage(meta, bodyHtml, slug) {
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>${title} | damages.co.il</title>
 <meta name="description" content="${desc}">
-<meta name="keywords" content="${meta.keywords_he || meta.keywords || ''}">
 <link rel="canonical" href="${canonical}">
+<link rel="alternate" hreflang="he" href="${canonical}">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/favicon.png">
 <meta name="theme-color" content="#0a0a1e">
@@ -103,7 +125,7 @@ function buildPage(meta, bodyHtml, slug) {
 <meta property="og:url" content="${canonical}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="damages.co.il">
-<meta property="og:image" content="https://damages.co.il/assets/hero_bg.png">
+<meta property="og:image" content="https://damages.co.il/assets/hero_bg.webp">
 <meta property="og:locale" content="he_IL">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${title}">
@@ -113,6 +135,7 @@ function buildPage(meta, bodyHtml, slug) {
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 <script type="application/ld+json">${schema}</script>
+<script type="application/ld+json">${breadcrumbSchema}</script>
 <style>
 .article-wrap{max-width:800px;margin:100px auto 60px;padding:40px;background:var(--secondary-bg);border-radius:16px;border:1px solid rgba(212,175,55,.2)}
 .article-wrap h1{color:var(--accent-gold);font-size:2.2rem;border-bottom:2px solid var(--accent-gold);padding-bottom:15px}
@@ -139,7 +162,7 @@ function buildPage(meta, bodyHtml, slug) {
 <div class="container">
 <div style="display:flex;align-items:center">
 <a href="/" style="text-decoration:none;color:inherit">
-<h1 style="margin:0;font-size:1.8rem">damages<span style="color:var(--accent-gold)">.co.il</span></h1>
+<div style="margin:0;font-size:1.8rem;font-weight:800">damages<span style="color:var(--accent-gold)">.co.il</span></div>
 <span style="font-size:.8rem;color:var(--accent-gold);font-weight:600">פורטל הנזיקין והפיצויים מס' 1 בישראל</span>
 </a>
 </div>
@@ -153,15 +176,38 @@ function buildPage(meta, bodyHtml, slug) {
 <main class="article-wrap">
 <a href="/" class="back-link">→ חזרה לדף הבית</a>
 <div class="meta-bar">
-${meta.sefira ? `<span class="meta-tag">ספירה: ${meta.sefira}</span>` : ''}
-${meta.category ? `<span class="meta-tag">${meta.category}</span>` : ''}
+${meta.sefira ? `<a href="/#knowledge" class="meta-tag" style="text-decoration:none">ספירה: ${meta.sefira}</a>` : ''}
+${meta.category ? `<a href="/#knowledge" class="meta-tag" style="text-decoration:none">${meta.category}</a>` : ''}
 ${meta.era ? `<span class="meta-tag">תקופה: ${meta.era}</span>` : ''}
 ${meta.source ? `<span class="meta-tag">מקור: ${meta.source}</span>` : ''}
 </div>
 ${bodyHtml}
 <div class="copy-footer">© HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</div>
 </main>
-<footer class="main-footer"><p>© HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</p></footer>
+<footer class="main-footer" style="border-top:1px solid rgba(212,175,55,.1);padding:30px 0">
+<div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;font-size:.85rem;color:var(--text-muted)">
+<div>© 2026 HUB האב מערכות מתקדמות בע"מ</div>
+<nav style="display:flex;gap:15px">
+<a href="/privacy/" style="color:var(--text-muted);text-decoration:none">מדיניות פרטיות</a>
+<a href="/terms/" style="color:var(--text-muted);text-decoration:none">תנאי שימוש</a>
+<a href="/accessibility/" style="color:var(--text-muted);text-decoration:none">♀ נגישות</a>
+<a href="https://wa.me/972587008133" target="_blank" style="color:var(--text-muted);text-decoration:none">💬 ווצאפ</a>
+</nav>
+<p style="width:100%;font-size:.8rem;opacity:.6">המידע באתר אינו מהווה ייעוץ משפטי ואינו תחליף להתייעצות עם עורך דין.</p>
+</div>
+</footer>
+<script>
+function trackLead(source, extra) {
+    const lead = { ts: new Date().toISOString(), source: source || 'unknown', page: location.pathname, referrer: document.referrer || 'direct', extra: extra || null, ua: navigator.userAgent };
+    try { navigator.sendBeacon('/api/lead', JSON.stringify(lead)); } catch(e) {
+        const leads = JSON.parse(localStorage.getItem('dmg_leads') || '[]'); leads.push(lead); localStorage.setItem('dmg_leads', JSON.stringify(leads));
+    }
+}
+document.addEventListener('click', function(e) {
+    const link = e.target.closest('a[href*="wa.me"]');
+    if (link) trackLead('whatsapp-click', 'article:${slug}');
+});
+</script>
 </body>
 </html>`;
 }

@@ -6,21 +6,24 @@
     <title>damages.co.il | פיצוי מקסימלי לנזקי גוף ורכוש</title>
     <meta name="description" content="נפגעת בתאונה? נגרם לך נזק לרכוש? המומחים שלנו ידאגו שתקבל את הפיצוי המקסימלי המגיע לך. בדוק זכאות חינם.">
     <link rel="canonical" href="https://damages.co.il/">
+    <link rel="alternate" hreflang="he" href="https://damages.co.il/">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/assets/favicon.png">
     <link rel="apple-touch-icon" href="/assets/favicon.png">
     <meta name="theme-color" content="#0a0a1e">
+    <link rel="manifest" href="/manifest.json">
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://damages.co.il/">
     <meta property="og:title" content="damages.co.il | פיצוי מקסימלי לנזקי גוף ורכוש">
     <meta property="og:description" content="נפגעת בתאונה? נגרם לך נזק? עורכי דין מומחים לנזיקין. בדיקת זכאות חינם — ללא התחייבות.">
-    <meta property="og:image" content="https://damages.co.il/assets/hero_bg.png">
+    <meta property="og:image" content="https://damages.co.il/assets/hero_bg.webp">
     <meta property="og:locale" content="he_IL">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="damages.co.il | פיצוי מקסימלי לנזקי גוף ורכוש">
     <meta name="twitter:description" content="עורכי דין מומחים לנזיקין, תאונות דרכים ותביעות ביטוח. בדיקת זכאות חינם.">
-    <meta name="twitter:image" content="https://damages.co.il/assets/hero_bg.png">
+    <meta name="twitter:image" content="https://damages.co.il/assets/hero_bg.webp">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,11 +37,15 @@
       "@graph": [
         {
           "@type": "LegalService",
-          "name": "damages.co.il - פורטל הנזיקין",
+          "name": "damages.co.il - פורטל הנזיקין והפיצויים",
           "description": "המומחים בייצוג נפגעי תאונות דרכים, רשלנות רפואית ונזקי רכוש",
           "url": "https://damages.co.il",
           "telephone": "+972587008133",
-          "priceRange": "$$$"
+          "priceRange": "$$$",
+          "areaServed": {"@type": "Country", "name": "Israel"},
+          "address": {"@type": "PostalAddress", "addressCountry": "IL", "addressLocality": "Israel"},
+          "sameAs": ["https://wa.me/972587008133"],
+          "availableLanguage": "Hebrew"
         },
         {
           "@type": "FAQPage",
@@ -49,6 +56,30 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "הפיצוי על תאונת דרכים משתנה לפי חומרת הפגיעה — מ-10,000 ש\"ח לפגיעה קלה, דרך 50,000-150,000 ש\"ח לפגיעה בינונית, ועד מאות אלפי שקלים לפגיעות קשות עם נכות."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "כמה זמן לוקח לקבל פיצוי על תאונת דרכים?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "משך הטיפול בתביעה תלוי בסוג המקרה — תביעה פשוטה נגד ביטוח יכולה להסתיים תוך 3-6 חודשים, בעוד תביעה מורכבת הכוללת נכות עלולה להימשך 1-3 שנים."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "כמה עולה עורך דין נזיקין?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "רוב עורכי הדין לנזיקין עובדים על בסיס הצלחה — אתה לא משלם כלום מראש. שכר הטרחה הוא אחוז מהפיצוי שיתקבל, בדרך כלל 8%-25% בהתאם לסוג התיק."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "איך מגישים תביעת נזיקין?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "הצעד הראשון הוא פנייה לייעוץ עם עורך דין מומחה. אנו ממליצים ליצור קשר דרך ה-WhatsApp שלנו לבדיקת זכאות חינם — נציג מקצועי יחזור אליך תוך דקות ויבדוק את המקרה שלך."
               }
             }
           ]
@@ -63,7 +94,7 @@
         <div class="container">
             <div class="header-left" style="display: flex; align-items: center;">
                 <a href="/" class="logo" style="display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; color: inherit;">
-                    <h1>damages<span>.co.il</span></h1>
+                    <div style="font-size:1.8rem;font-weight:800;margin:0">damages<span>.co.il</span></div>
                     <span style="font-size: 0.8rem; color: var(--accent-gold); letter-spacing: 0.2px; margin-top: -3px; font-weight: 600;">פורטל הנזיקין והפיצויים מס' 1 בישראל</span>
                 </a>
             </div>
@@ -90,6 +121,7 @@
         </div>
     </header>
 
+    <main id="main-content">
     <section class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
@@ -124,36 +156,36 @@
                 <p>אנו מטפלים בכל סוגי תביעות הנזיקין כדי להבטיח את זכויותיך.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card fade-in-up">
+                <a href="/justice/torts/car-accidents/whiplash-compensation/" class="service-card fade-in-up" style="text-decoration:none;color:inherit;display:block">
                     <div class="icon">🚗</div>
                     <h3>תאונות דרכים</h3>
                     <p>ייצוג נפגעי תאונות דרכים מול חברות הביטוח להשגת הפיצוי המקסימלי הקבוע בחוק.</p>
-                </div>
-                <div class="service-card fade-in-up delay-1">
+                </a>
+                <a href="/justice/torts/medical-malpractice/medical-malpractice-basics/" class="service-card fade-in-up delay-1" style="text-decoration:none;color:inherit;display:block">
                     <div class="icon">🏥</div>
                     <h3>רשלנות רפואית</h3>
                     <p>טיפול בתביעות מורכבות של נזקי גוף עקב טיפול רפואי לקוי או אבחון מאוחר.</p>
-                </div>
-                <div class="service-card fade-in-up delay-2">
+                </a>
+                <a href="/justice/torts/property-damage/property-damage-fire-flood/" class="service-card fade-in-up delay-2" style="text-decoration:none;color:inherit;display:block">
                     <div class="icon">🏠</div>
                     <h3>נזקי רכוש</h3>
                     <p>ליווי בתביעות נגד חברות ביטוח על נזקי צנרת, שריפות, ונזקים למבנה ולתכולה.</p>
-                </div>
-                <div class="service-card fade-in-up">
+                </a>
+                <a href="/defense/evidence/evidence-law-basics/" class="service-card fade-in-up" style="text-decoration:none;color:inherit;display:block">
                     <div class="icon">⚒️</div>
                     <h3>תאונות עבודה</h3>
                     <p>פיצוי לנפגעי תאונות עבודה ומחלות מקצוע — ביטוח לאומי, מעסיק ותביעות צד ג'.</p>
-                </div>
-                <div class="service-card fade-in-up delay-1">
+                </a>
+                <a href="/justice/torts/insurance-claims/insurance-claim-guide/" class="service-card fade-in-up delay-1" style="text-decoration:none;color:inherit;display:block">
                     <div class="icon">📋</div>
                     <h3>תביעות ביטוח</h3>
                     <p>דחתה חברת הביטוח את תביעתך? אנחנו נלחם עבורך על כל שקל שמגיע לך.</p>
-                </div>
-                <div class="service-card fade-in-up delay-2">
+                </a>
+                <a href="/justice/criminal-law/criminal-vs-tort-law/" class="service-card fade-in-up delay-2" style="text-decoration:none;color:inherit;display:block">
                     <div class="icon">⚖️</div>
                     <h3>תקיפה ואלימות</h3>
                     <p>הגשת תביעה אזרחית בגין תקיפה — מעבר להליך הפלילי, מגיע לך פיצוי כספי.</p>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -292,6 +324,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <footer class="main-footer" style="border-top: 1px solid rgba(212,175,55,0.1); padding: 40px 0;">
         <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
@@ -457,6 +490,6 @@
     });
     </script>
 
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>
