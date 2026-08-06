@@ -1,0 +1,33 @@
+# damages.co.il — Full AI Context File (llms-full.txt)
+
+## Site Overview
+damages.co.il is Israel's primary legal portal for personal injury, traffic accident compensation, medical malpractice, property damage, and insurance recovery claims.
+
+## Key Content & Articles
+- Title: פיצוי על צליפת שוט בתאונת דרכים
+  URL: https://damages.co.il/justice/torts/car-accidents/whiplash-compensation/
+  Description: המדריך המלא לקבלת פיצוי מקסימלי מחברת הביטוח על פגיעת צליפת שוט בתאונת דרכים.
+
+- Title: רשלנות רפואית בישראל — המדריך המלא
+  URL: https://damages.co.il/justice/torts/medical-malpractice/medical-malpractice-basics/
+  Description: טיפול בתביעות מורכבות של נזקי גוף עקב טיפול רפואי לקוי או אבחון מאוחר.
+
+- Title: נזקי רכוש — שריפות והצפות
+  URL: https://damages.co.il/justice/torts/property-damage/property-damage-fire-flood/
+  Description: ליווי בתביעות נגד חברות ביטוח על נזקי צנרת, שריפות, ונזקים למבנה ולתכולה.
+
+- Title: תביעות ביטוח בישראל — הזכויות שלך
+  URL: https://damages.co.il/justice/torts/insurance-claims/insurance-claim-guide/
+  Description: מדריך מקיף להתמודדות מול דחיות תביעה של חברות הביטוח.
+
+- Title: פקודת הנזיקין [נוסח חדש]
+  URL: https://damages.co.il/defense/legislation/tort-ordinance-overview/
+  Description: ניתוח סעיפי הליבה בפקודת הנזיקין והעוולות האזרחיות בישראל.
+
+- Title: פסקי דין מכוננים בנזיקין
+  URL: https://damages.co.il/defense/precedents/supreme-court/landmark-tort-rulings-israel/
+  Description: פסיקות בולטות של בית המשפט העליון ששינו את חלוקת האחריות והפיצויים.
+
+## Lead Submission API
+- POST https://damages.co.il/api/lead (Format: JSON { source, page, referrer, extra })
+- Direct WhatsApp Intake: https://wa.me/972587008133
