@@ -478,13 +478,21 @@ a {
 }
 @media (max-width: 900px) {
     .app-bottom-bar {
-        display: flex;
+        display: flex !important;
     }
     body {
         padding-bottom: 62px;
     }
     #a11y-fab {
         bottom: 75px !important;
+    }
+}
+@media (min-width: 901px) {
+    .app-bottom-bar, .hamburger-btn, .mobile-drawer {
+        display: none !important;
+    }
+    #a11y-fab {
+        bottom: 20px !important;
     }
 }
 .app-bar-item {
