@@ -67,6 +67,8 @@ function buildIndex() {
         
         const slug = relativePath.replace(/\.md$/, '');
         
+        const bodyText = content.replace(/^---\n[\s\S]*?\n---/, '').replace(/[#*`>|]/g, ' ').replace(/\s+/g, ' ');
+        
         searchIndex.push({
             id: slug,
             title: meta.title || path.basename(file, '.md'),
@@ -80,6 +82,7 @@ function buildIndex() {
             pillar: meta.pillar || '',
             era: meta.era || '',
             source: meta.source || '',
+            content_text: bodyText.substring(0, 1500),
             verified: meta.verified === 'true',
             url: `/${slug}/`
         });

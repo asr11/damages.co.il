@@ -134,7 +134,10 @@ document.addEventListener('DOMContentLoaded', () => {
                        (item.description_he || '').includes(query) ||
                        (item.keywords || '').toLowerCase().includes(query) ||
                        (item.keywords_he || '').includes(query) ||
-                       (item.category || '').includes(query);
+                       (item.category || '').includes(query) ||
+                       (item.source || '').includes(query) ||
+                       (item.era || '').includes(query) ||
+                       (item.content_text || '').includes(query);
             });
 
             if (results.length > 0) {
@@ -147,7 +150,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 `).join('');
                 searchResults.style.display = 'block';
             } else {
-                searchResults.innerHTML = '<div style="padding: 15px; color: var(--text-muted); text-align: center;">לא נמצאו תוצאות.</div>';
+                const encodedQuery = encodeURIComponent(`שלום, חפשתי באתר בנושא: "${query}" ואני מעוניין בייעוץ משפטי מול עורך דין.`);
+                searchResults.innerHTML = `
+                    <div style="padding: 15px; text-align: center;">
+                        <p style="margin: 0 0 10px 0; color: var(--text-muted); font-size: 0.9rem;">רוצה להתייעץ על "${query}" מול עורך דין מומחה?</p>
+                        <a href="https://wa.me/972587008133?text=${encodedQuery}" target="_blank" style="display: inline-block; padding: 8px 18px; background: #25D366; color: #0a0a1e; border-radius: 20px; font-weight: 700; text-decoration: none; font-size: 0.85rem;">
+                            💬 ייעוץ חירום בווצאפ
+                        </a>
+                    </div>`;
                 searchResults.style.display = 'block';
             }
         });
