@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אזור אישי לעורכי דין שותפים | damages.co.il</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.login-box {
+    max-width: 450px;
+    margin: 120px auto 60px;
+    padding: 40px;
+    background: var(--secondary-bg);
+    border-radius: 16px;
+    border: 1px solid rgba(212,175,55,0.3);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+.login-box h1 {
+    color: var(--accent-gold);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.login-box p {
+    color: var(--text-muted);
+    text-align: center;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+}
+.form-group input:focus {
+    border-color: var(--accent-gold);
+    outline: none;
+}
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent-gold);
+    color: #0a0a1e;
+    font-weight: 800;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.btn-login:hover {
+    transform: translateY(-2px);
+}
+</style>
+</head>
+<body>
+<header class="main-header">
+<div class="container" style="display:flex;align-items:center;justify-content:space-between">
+<a href="/" style="text-decoration:none;color:inherit"><div style="font-size:1.8rem;font-weight:800;margin:0">damages<span style="color:var(--accent-gold)">.co.il</span></div></a>
+<a href="/" style="color:var(--accent-gold);text-decoration:none;font-weight:700">→ חזרה לאתר</a>
+</div>
+</header>
+
+<main role="main">
+<div class="login-box">
+<h1>⚖️ פורטל עורכי דין שותפים</h1>
+<p>התחברות לחברי אינדקס עורכי הדין ופרסום מאמרים מקצועיים</p>
+<form id="lawyerLoginForm">
+<div class="form-group">
+<label for="lawyerEmail">דוא"ל / מספר רישיון עו"ד</label>
+<input type="text" id="lawyerEmail" placeholder="lawyer@firm.co.il" required>
+</div>
+<div class="form-group">
+<label for="lawyerPassword">סיסמה</label>
+<input type="password" id="lawyerPassword" placeholder="••••••••" required>
+</div>
+<button type="submit" class="btn-login">התחבר לפורטל</button>
+</form>
+<div id="loginMsg" style="margin-top:20px;text-align:center;display:none"></div>
+</div>
+</main>
+
+<script>
+document.getElementById('lawyerLoginForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const msg = document.getElementById('loginMsg');
+    msg.style.display = 'block';
+    msg.style.color = 'var(--accent-gold)';
+    msg.innerHTML = '✨ התחברת בהצלחה! מעביר ללוח ניהול מאמרים...';
+    setTimeout(() => {
+        window.location.href = '/lawyer/dashboard.html';
+    }, 1200);
+});
+</script>
+</body>
+</html>

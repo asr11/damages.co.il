@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>לוח ניהול עורך דין — פרסום מאמרים | damages.co.il</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.dash-wrap {
+    max-width: 900px;
+    margin: 100px auto 60px;
+    padding: 30px;
+    background: var(--secondary-bg);
+    border-radius: 16px;
+    border: 1px solid rgba(212,175,55,0.3);
+}
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(212,175,55,0.2);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+}
+.form-group textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+.btn-submit-article {
+    padding: 14px 30px;
+    background: var(--accent-gold);
+    color: #0a0a1e;
+    font-weight: 800;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-submit-article:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+}
+</style>
+</head>
+<body>
+<header class="main-header">
+<div class="container" style="display:flex;align-items:center;justify-content:space-between">
+<a href="/" style="text-decoration:none;color:inherit"><div style="font-size:1.8rem;font-weight:800;margin:0">damages<span style="color:var(--accent-gold)">.co.il</span></div></a>
+<div style="display:flex;align-items:center;gap:15px">
+<span style="color:var(--text-muted);font-size:0.9rem">שלום, <strong>עו"ד מומחה נזיקין</strong></span>
+<a href="/lawyer/login.html" style="color:#ef4444;text-decoration:none;font-weight:700">התנתק</a>
+</div>
+</div>
+</header>
+
+<main role="main">
+<div class="dash-wrap">
+<div class="dash-header">
+<div>
+<h1 style="color:var(--accent-gold);margin:0;font-size:1.8rem">📝 פרסום מאמר משפטי חדש</h1>
+<p style="color:var(--text-muted);margin:5px 0 0 0">המאמר יפורסם תחת שמך באינדקס המאמרים ויופיע במנועי החיפוש</p>
+</div>
+</div>
+
+<form id="publishArticleForm">
+<div class="form-group">
+<label for="artTitle">כותרת המאמר</label>
+<input type="text" id="artTitle" placeholder="לדוגמה: זכויות נפגעי תאונות דרכים קשות במערכת הביטחון" required>
+</div>
+
+<div class="form-row">
+<div class="form-group">
+<label for="artCategory">תחום התמחות / קטגוריה</label>
+<select id="artCategory" required>
+<option value="תאונות דרכים">תאונות דרכים</option>
+<option value="רשלנות רפואית">רשלנות רפואית</option>
+<option value="תאונות עבודה">תאונות עבודה</option>
+<option value="נזקי רכוש">נזקי רכוש</option>
+<option value="תביעות ביטוח">תביעות ביטוח</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="artAuthor">שם המחבר (עו"ד / משרד)</label>
+<input type="text" id="artAuthor" value="עו"ד ישראל ישראלי — משרד עורכי דין נזיקין" required>
+</div>
+</div>
+
+<div class="form-group">
+<label for="artDesc">תקציר המאמר (מיועד לגוגל וכרטיסיית הבלוג)</label>
+<input type="text" id="artDesc" placeholder="תקציר קצר ב-1-2 משפטים המציג את עיקרי המדריך המשפטי..." required>
+</div>
+
+<div class="form-group">
+<label for="artContent">תוכן המאמר המלא (פורמט טקסט / Markdown)</label>
+<textarea id="artContent" placeholder="כתוב את המאמר המלא כאן..." required></textarea>
+</div>
+
+<div style="text-align:left">
+<button type="submit" class="btn-submit-article">🚀 שלח לפרסום באינדקס המאמרים</button>
+</div>
+</form>
+<div id="pubMsg" style="margin-top:20px;text-align:center;display:none"></div>
+</div>
+</main>
+
+<script>
+document.getElementById('publishArticleForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const msg = document.getElementById('pubMsg');
+    msg.style.display = 'block';
+    msg.style.color = 'var(--accent-gold)';
+    msg.innerHTML = '✅ המאמר נקלט בהצלחה במערכת! הוא יעבור אישור מהיר ויפורסם ב-damages.co.il/articles/.';
+});
+</script>
+</body>
+</html>

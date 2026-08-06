@@ -488,6 +488,7 @@ const today = new Date().toISOString().split('T')[0];
 const sitemapEntries = [
     { loc: '/', freq: 'weekly', priority: '1.0' },
     { loc: '/articles/', freq: 'weekly', priority: '0.9' },
+    { loc: '/lawyer/login.html', freq: 'monthly', priority: '0.6' },
     ...allArticles.map(a => ({
         loc: `/${a.rel}/`,
         freq: a.pillar === 'defense' && a.rel.includes('live-rulings') ? 'weekly' : 'monthly',
