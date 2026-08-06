@@ -97,11 +97,11 @@
                 <h2>נפגעת? נדאג שתקבל את הפיצוי <span>המקסימלי</span> שמגיע לך.</h2>
                 <p>עורכי דין מומחים לנזיקין, תאונות דרכים, רשלנות רפואית ותביעות ביטוח. בדיקת זכאות חינם — ללא התחייבות.</p>
                 <div class="hero-actions">
-                    <a href="#lead-form" class="btn btn-primary pulse">בדיקת זכאות חינם</a>
-                    <a href="https://wa.me/972587008133?text=שלום%2C%20אני%20מעוניין%20בבדיקת%20זכאות%20לפיצויים." target="_blank" class="btn btn-whatsapp">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-                        ייעוץ ראשוני חינם
+                    <a href="https://wa.me/972587008133?text=שלום%2C%20אני%20מעוניין%20בבדיקת%20זכאות%20לפיצויים." target="_blank" rel="noopener" class="btn btn-primary pulse" onclick="trackLead('hero-cta')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:24px;height:24px;vertical-align:middle;margin-left:8px;filter:brightness(0)">
+                        בדיקת זכאות חינם
                     </a>
+                    <a href="#calculator" class="btn btn-secondary">🧮 מחשבון פיצויים</a>
                 </div>
             </div>
             <div class="hero-stats fade-in-up delay-1">
@@ -426,6 +426,34 @@
             const sr = document.getElementById('searchResults');
             if (sr) sr.style.display = 'none';
         }
+    });
+    </script>
+
+    <script>
+    // Lead Tracker — 100% Self-Hosted, Zero Cloud
+    function trackLead(source, extra) {
+        const lead = {
+            ts: new Date().toISOString(),
+            source: source || 'unknown',
+            page: location.pathname,
+            referrer: document.referrer || 'direct',
+            extra: extra || null,
+            ua: navigator.userAgent
+        };
+        // Fire-and-forget to local API
+        try {
+            navigator.sendBeacon('/api/lead', JSON.stringify(lead));
+        } catch(e) {
+            // Fallback: store locally
+            const leads = JSON.parse(localStorage.getItem('dmg_leads') || '[]');
+            leads.push(lead);
+            localStorage.setItem('dmg_leads', JSON.stringify(leads));
+        }
+    }
+    // Auto-track all WhatsApp links
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('a[href*="wa.me"]');
+        if (link) trackLead('whatsapp-click', link.closest('section')?.id || 'page');
     });
     </script>
 
