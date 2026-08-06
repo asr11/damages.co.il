@@ -346,6 +346,12 @@ a {
     background: rgba(255, 255, 255, 0.1);
 }
 
+.form-group select option {
+    background-color: var(--secondary-bg) !important;
+    color: #ffffff !important;
+    padding: 10px;
+}
+
 .submit-btn {
     width: 100%;
     padding: 16px;
