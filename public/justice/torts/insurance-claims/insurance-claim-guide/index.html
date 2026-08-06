@@ -51,16 +51,27 @@
 <body>
 <header class="main-header">
 <div class="container">
-<div style="display:flex;align-items:center">
-<a href="/" style="text-decoration:none;color:inherit">
-<div style="margin:0;font-size:1.8rem;font-weight:800">damages<span style="color:var(--accent-gold)">.co.il</span></div>
-<span style="font-size:.8rem;color:var(--accent-gold);font-weight:600">פורטל הנזיקין והפיצויים מס' 1 בישראל</span>
+<div class="header-left" style="display:flex;align-items:center">
+<a href="/" class="logo" style="display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;color:inherit">
+<div style="font-size:1.8rem;font-weight:800;margin:0">damages<span style="color:var(--accent-gold)">.co.il</span></div>
+<span style="font-size:.8rem;color:var(--accent-gold);font-weight:600;margin-top:-3px">פורטל הנזיקין והפיצויים מס' 1 בישראל</span>
 </a>
 </div>
+
+<div class="header-center" style="flex:1;max-width:350px;margin:0 20px;display:none;position:relative" id="desktop-search">
+<div class="search-bar" style="position:relative;width:100%">
+<input type="text" id="searchInput" placeholder="חפש פסיקות, מאמרים או שאלות..." autocomplete="off" style="width:100%;padding:10px 40px 10px 15px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.3);color:white;font-family:inherit;font-size:0.9rem;transition:var(--transition-fast)">
+<svg style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;fill:var(--text-muted)" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+</div>
+<div id="searchResults" style="display:none;position:absolute;top:45px;right:0;left:0;background:var(--secondary-bg);border-radius:8px;border:1px solid var(--accent-gold);max-height:300px;overflow-y:auto;z-index:1001;box-shadow:0 10px 25px rgba(0,0,0,0.5)"></div>
+</div>
+
 <nav class="nav-links">
 <a href="/">דף הבית</a>
 <a href="/#services">התמחות</a>
-<a href="https://wa.me/972587008133" class="btn btn-whatsapp" style="padding:6px 16px;font-size:1rem;border-radius:20px">חירום 24/7</a>
+<a href="https://wa.me/972587008133?text=שלום%2C%20אני%20צריך%20עזרה%20דחופה%20בנושא%20נזיקין" target="_blank" class="btn btn-whatsapp pulse" style="padding:6px 16px;font-size:1rem;border-radius:20px;border:2px solid var(--whatsapp-green);background:#25D366;color:#0a0a1e;font-weight:800;white-space:nowrap">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:18px;vertical-align:middle;margin-left:6px;filter:brightness(0)">חירום 24/7
+</a>
 </nav>
 </div>
 </header>
@@ -142,5 +153,6 @@ document.addEventListener('click', function(e) {
     if (link) trackLead('whatsapp-click', 'article:justice/torts/insurance-claims/insurance-claim-guide');
 });
 </script>
+<script src="/script.js"></script>
 </body>
 </html>
