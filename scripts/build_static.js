@@ -151,7 +151,8 @@ function buildPage(meta, bodyHtml, slug) {
 .article-wrap li{margin:8px 0;line-height:1.7}
 .article-wrap hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:30px 0}
 .meta-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:25px}
-.meta-tag{background:rgba(212,175,55,.1);color:var(--accent-gold);padding:4px 12px;border-radius:12px;font-size:.85rem}
+.meta-tag{background:rgba(212,175,55,.1);color:var(--accent-gold);padding:6px 16px;border-radius:20px;font-size:.85rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(212,175,55,.2);cursor:pointer;transition:all .2s ease}
+.meta-tag:hover{background:rgba(212,175,55,.25);border-color:var(--accent-gold);transform:translateY(-1px);box-shadow:0 4px 12px rgba(212,175,55,.15)}
 .back-link{display:inline-flex;align-items:center;gap:8px;color:var(--accent-gold);margin-bottom:20px;font-weight:600;text-decoration:none}
 .back-link:hover{text-decoration:underline}
 .copy-footer{text-align:center;color:var(--text-muted);font-size:.85rem;margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.05)}
@@ -176,10 +177,10 @@ function buildPage(meta, bodyHtml, slug) {
 <main class="article-wrap">
 <a href="/" class="back-link">→ חזרה לדף הבית</a>
 <div class="meta-bar">
-${meta.sefira ? `<a href="/#knowledge" class="meta-tag" style="text-decoration:none">ספירה: ${meta.sefira}</a>` : ''}
-${meta.category ? `<a href="/#knowledge" class="meta-tag" style="text-decoration:none">${meta.category}</a>` : ''}
-${meta.era ? `<span class="meta-tag">תקופה: ${meta.era}</span>` : ''}
-${meta.source ? `<span class="meta-tag">מקור: ${meta.source}</span>` : ''}
+${meta.sefira ? `<a href="/#knowledge" class="meta-tag">✨ ספירה: ${meta.sefira}</a>` : ''}
+${meta.category ? `<a href="/#knowledge" class="meta-tag">📚 ${meta.category}</a>` : ''}
+${meta.era ? `<a href="/#knowledge" class="meta-tag">📅 תקופה: ${meta.era}</a>` : ''}
+${meta.source ? `<a href="/#knowledge" class="meta-tag">📜 מקור: ${meta.source}</a>` : ''}
 </div>
 ${bodyHtml}
 <div class="copy-footer">© HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</div>
