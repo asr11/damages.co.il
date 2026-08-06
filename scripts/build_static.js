@@ -17,6 +17,7 @@ const path = require('path');
 
 const contentDir = path.join(__dirname, '../public/content');
 const outputDir = path.join(__dirname, '../public');
+const DOMAIN = 'https://damages.co.il';
 
 function scanMd(dir, files = []) {
     if (!fs.existsSync(dir)) return files;
