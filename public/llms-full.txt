@@ -103,6 +103,19 @@ undefined
 ========================================
 
 ---
+Title: תאונת אופנוע וקורקינט חשמלי — מדריך פיצויים מקיף
+URL: https://damages.co.il/justice/torts/car-accidents/motorcycle-accident-compensation-guide/
+Category: תאונות דרכים
+Source: חוק הפלת״ד [רכב דו-גלגלי]
+Era: 2026
+---
+
+undefined
+
+
+========================================
+
+---
 Title: תאונת פגע וברח — הגשת תביעה מול קרנית לקבלת פיצויים
 URL: https://damages.co.il/justice/torts/car-accidents/pedestrian-hit-and-run-compensation/
 Category: תאונות דרכים
@@ -155,6 +168,19 @@ undefined
 ========================================
 
 ---
+Title: רשלנות רפואית בטיפולי שיניים והשתלות — מדריך פיצויים
+URL: https://damages.co.il/justice/torts/medical-malpractice/dental-malpractice-implants-compensation/
+Category: רשלנות רפואית
+Source: פקודת הנזיקין וחוות דעת רופא שיניים מומחה
+Era: 2026
+---
+
+undefined
+
+
+========================================
+
+---
 Title: רשלנות רפואית בישראל — המדריך המלא
 URL: https://damages.co.il/justice/torts/medical-malpractice/medical-malpractice-basics/
 Category: רשלנות רפואית
@@ -172,6 +198,19 @@ Title: רשלנות רפואית באבחון מאוחר — זכויות ופי
 URL: https://damages.co.il/justice/torts/medical-malpractice/medical-malpractice-diagnosis-delay/
 Category: רשלנות רפואית
 Source: פקודת הנזיקין וחוק זכויות החולה
+Era: 2026
+---
+
+undefined
+
+
+========================================
+
+---
+Title: תביעת נזיקין נגד עירייה בשל הצפת ביוב ונקזים — מדריך נזקי רכוש
+URL: https://damages.co.il/justice/torts/property-damage/municipality-negligence-sewage-flooding/
+Category: נזקי רכוש
+Source: פקודת הנזיקין [רשלנות עירייה]
 Era: 2026
 ---
 

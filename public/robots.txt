@@ -3,6 +3,6 @@ Allow: /
 
 Sitemap: https://damages.co.il/sitemap.xml
 
-# Akasha Vault — 22 articles indexed
+# Akasha Vault — 25 articles indexed
 # Auto-generated 2026-08-06
 # © HUB האב מערכות מתקדמות בע"מ

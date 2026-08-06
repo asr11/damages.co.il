@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אינדקס עורכי דין מומחים בנזיקין | damages.co.il</title>
+<meta name="description" content="נבחרת עורכי הדין המובילים בישראל בתחומי הנזיקין, תאונות דרכים, רשלנות רפואית ותביעות ביטוח.">
+<link rel="canonical" href="https://damages.co.il/lawyers/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.lawyers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+}
+.lawyer-card {
+    background: var(--secondary-bg);
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 16px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+}
+.lawyer-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.lawyer-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.lawyer-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-gold), #b8860b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: #0a0a1e;
+    font-weight: 800;
+}
+.lawyer-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: white;
+    margin: 0;
+}
+.lawyer-city {
+    font-size: 0.85rem;
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 15px 0;
+}
+.tag {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-muted);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+.btn-lawyer-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: #25D366;
+    color: #0a0a1e;
+    font-weight: 800;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    margin-top: 15px;
+}
+</style>
+</head>
+<body>
+<header class="main-header">
+<div class="container" style="display:flex;align-items:center;justify-content:space-between">
+<div class="header-left" style="display:flex;align-items:center">
+<a href="/" class="logo" style="display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;color:inherit">
+<div style="font-size:1.8rem;font-weight:800;margin:0">damages<span style="color:var(--accent-gold)">.co.il</span></div>
+<span style="font-size:.8rem;color:var(--accent-gold);font-weight:600;margin-top:-3px">פורטל הנזיקין והפיצויים מס' 1 בישראל</span>
+</a>
+</div>
+
+<div class="header-center" style="flex:1;max-width:350px;margin:0 20px;display:none;position:relative" id="desktop-search">
+<div class="search-bar" style="position:relative;width:100%">
+<input type="text" id="searchInput" placeholder="חפש פסיקות, מאמרים או שאלות..." autocomplete="off" style="width:100%;padding:10px 40px 10px 15px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.3);color:white;font-family:inherit;font-size:0.9rem;transition:var(--transition-fast)">
+<svg style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;fill:var(--text-muted)" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+</div>
+<div id="searchResults" style="display:none;position:absolute;top:45px;right:0;left:0;background:var(--secondary-bg);border-radius:8px;border:1px solid var(--accent-gold);max-height:300px;overflow-y:auto;z-index:1001;box-shadow:0 10px 25px rgba(0,0,0,0.5)"></div>
+</div>
+
+<nav class="nav-links">
+<a href="/articles/" style="color:var(--accent-gold);font-weight:700">📚 כל המאמרים</a>
+<a href="/lawyers/" style="color:var(--accent-gold);font-weight:700">⚖️ נבחרת עורכי הדין</a>
+<a href="/lawyer/login.html" style="color:var(--text-muted);font-weight:600">🔐 כניסת עורכי דין</a>
+<a href="https://wa.me/972587008133" target="_blank" class="btn btn-whatsapp" style="padding:6px 16px;font-size:1rem;border-radius:20px">חירום 24/7</a>
+</nav>
+</div>
+</header>
+
+<main style="max-width:1100px;margin:100px auto 60px;padding:0 20px" role="main">
+<div style="text-align:center;margin-bottom:40px">
+<h1 style="color:var(--accent-gold);font-size:2.4rem;margin-bottom:10px">⚖️ נבחרת עורכי הדין המומחים בנזיקין</h1>
+<p style="color:var(--text-muted);font-size:1.1rem">עורכי דין מומלצים ומאומתים בתחומי תאונות דרכים, רשלנות רפואית, נזקי גוף ורכוש</p>
+</div>
+
+<div class="lawyers-grid">
+<div class="lawyer-card">
+<div>
+<div class="lawyer-header">
+<div class="lawyer-avatar">⚖️</div>
+<div>
+<h3 class="lawyer-name">משרד עורכי דין נזיקין & פיצויים</h3>
+<div class="lawyer-city">📍 תל אביב והמרכז</div>
+</div>
+</div>
+<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.6">ייצוג נפגעי תאונות דרכים קשות, רשלנות רפואית ותביעות מורכבות מול חברות הביטוח וביטוח לאומי.</p>
+<div class="tag-list">
+<span class="tag">תאונות דרכים</span>
+<span class="tag">רשלנות רפואית</span>
+<span class="tag">ביטוח לאומי</span>
+</div>
+</div>
+<a href="https://wa.me/972587008133?text=שלום%2C%20אני%20פונה%20מאינדקס%20עורכי%20הדין%20ב-damages.co.il" target="_blank" class="btn-lawyer-contact">💬 פנייה דחופה בווצאפ</a>
+</div>
+
+<div class="lawyer-card">
+<div>
+<div class="lawyer-header">
+<div class="lawyer-avatar">🏛️</div>
+<div>
+<h3 class="lawyer-name">משרד מומחה תאונות עבודה & נכות</h3>
+<div class="lawyer-city">📍 חיפה והצפון</div>
+</div>
+</div>
+<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.6">מומחיות בייצוג בוועדות רפואיות של הביטוח הלאומי, תביעות דמי פגיעה ודרגת נכות לצמיתה.</p>
+<div class="tag-list">
+<span class="tag">תאונות עבודה</span>
+<span class="tag">וועדות רפואיות</span>
+<span class="tag">מחלת מקצוע</span>
+</div>
+</div>
+<a href="https://wa.me/972587008133?text=שלום%2C%20אני%20מעוניין%20בייעוץ%20בנושא%20תאונת%20עבודה" target="_blank" class="btn-lawyer-contact">💬 פנייה דחופה בווצאפ</a>
+</div>
+</div>
+</main>
+
+<footer class="main-footer" style="border-top:1px solid rgba(212,175,55,.1);padding:30px 0;background:var(--secondary-bg)">
+<div class="container" style="text-align:center;font-size:.85rem;color:var(--text-muted)">
+<div><a href="/privacy/" style="color:var(--accent-gold);margin:0 10px">מדיניות פרטיות</a> | <a href="/terms/" style="color:var(--accent-gold);margin:0 10px">תנאי שימוש</a> | <a href="/accessibility/" style="color:var(--accent-gold);margin:0 10px">הצהרת נגישות</a></div>
+<p style="margin-top:10px">© 2026 HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</p>
+</div>
+</footer>
+<script src="/script.js"></script>
+</body>
+</html>

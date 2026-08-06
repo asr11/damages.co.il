@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מרכז הטפסים המשפטיים בנזיקין | damages.co.il</title>
+<meta name="description" content="הורדה וצפייה בטפסים משפטיים רשמיים בתחומי הנזיקין, תאונות דרכים, ביטוח לאומי ותביעות ביטוח.">
+<link rel="canonical" href="https://damages.co.il/forms/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.forms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+}
+.form-card {
+    background: var(--secondary-bg);
+    border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s;
+}
+.form-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-gold);
+}
+.form-badge {
+    background: rgba(212,175,55,0.15);
+    color: var(--accent-gold);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--accent-gold);
+    color: #0a0a1e;
+    font-weight: 800;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+</style>
+</head>
+<body>
+<header class="main-header">
+<div class="container" style="display:flex;align-items:center;justify-content:space-between">
+<div class="header-left" style="display:flex;align-items:center">
+<a href="/" class="logo" style="display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;color:inherit">
+<div style="font-size:1.8rem;font-weight:800;margin:0">damages<span style="color:var(--accent-gold)">.co.il</span></div>
+<span style="font-size:.8rem;color:var(--accent-gold);font-weight:600;margin-top:-3px">פורטל הנזיקין והפיצויים מס' 1 בישראל</span>
+</a>
+</div>
+
+<div class="header-center" style="flex:1;max-width:350px;margin:0 20px;display:none;position:relative" id="desktop-search">
+<div class="search-bar" style="position:relative;width:100%">
+<input type="text" id="searchInput" placeholder="חפש פסיקות, מאמרים או שאלות..." autocomplete="off" style="width:100%;padding:10px 40px 10px 15px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.3);color:white;font-family:inherit;font-size:0.9rem;transition:var(--transition-fast)">
+<svg style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;fill:var(--text-muted)" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+</div>
+<div id="searchResults" style="display:none;position:absolute;top:45px;right:0;left:0;background:var(--secondary-bg);border-radius:8px;border:1px solid var(--accent-gold);max-height:300px;overflow-y:auto;z-index:1001;box-shadow:0 10px 25px rgba(0,0,0,0.5)"></div>
+</div>
+
+<nav class="nav-links">
+<div style="display:inline-flex;background:rgba(255,255,255,0.08);border-radius:20px;padding:2px;border:1px solid rgba(212,175,55,0.3);font-size:0.8rem;margin-left:10px">
+<span style="background:var(--accent-gold);color:#0a0a1e;border-radius:16px;padding:3px 10px;font-weight:800;cursor:default">👤 Human</span>
+<a href="/llms.txt" target="_blank" style="color:var(--text-muted);text-decoration:none;padding:3px 10px;display:inline-block;font-weight:700">🤖 Machine</a>
+</div>
+<a href="/articles/" style="color:var(--accent-gold);font-weight:700">📚 כל המאמרים</a>
+<a href="/forms/" style="color:var(--accent-gold);font-weight:700">📄 טפסים</a>
+<a href="/">דף הבית</a>
+<a href="https://wa.me/972587008133" target="_blank" class="btn btn-whatsapp" style="padding:6px 16px;font-size:1rem;border-radius:20px">חירום 24/7</a>
+</nav>
+</div>
+</header>
+
+<main style="max-width:1100px;margin:100px auto 60px;padding:0 20px" role="main">
+<div style="text-align:center;margin-bottom:40px">
+<h1 style="color:var(--accent-gold);font-size:2.4rem;margin-bottom:10px">📄 מרכז הטפסים המשפטיים והמוסדיים</h1>
+<p style="color:var(--text-muted);font-size:1.1rem">הורדת טפסים רשמיים לתביעות תאונות דרכים, ביטוח לאומי, נזקי רכוש ורשלנות</p>
+</div>
+
+<div class="forms-grid">
+<div class="form-card">
+<div>
+<span class="form-badge">ביטוח לאומי</span>
+<h3 style="color:white;margin:15px 0 10px 0">טופס בל/250 — טופס מתן טיפול רפואי לנפגע עבודה</h3>
+<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.6">טופס חובה למילוי על ידי המעסיק מיד לאחר תאונת עבודה לקבלת טיפול בקופת חולים.</p>
+</div>
+<a href="https://wa.me/972587008133?text=שלום%2C%20אני%20זקוק%20לסיוע%20במילוי%20טופס%20בל/250" target="_blank" class="btn-download">📄 קבלת הטופס וייעוץ במילוי</a>
+</div>
+
+<div class="form-card">
+<div>
+<span class="form-badge">משטרת ישראל</span>
+<h3 style="color:white;margin:15px 0 10px 0">טופס הודעה על תאונת דרכים (אישור משטרה)</h3>
+<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.6">הודעה רשמית למשטרת ישראל לצורך קבלת אישור משטרה לתביעת חברת הביטוח.</p>
+</div>
+<a href="https://wa.me/972587008133?text=שלום%2C%20אני%20צריך%20אישור%20משטרה%20לתאונת%20דרכים" target="_blank" class="btn-download">🚔 קבלת הנחיות לאישור משטרה</a>
+</div>
+
+<div class="form-card">
+<div>
+<span class="form-badge">ביטוח חובה / מקיף</span>
+<h3 style="color:white;margin:15px 0 10px 0">טופס הודעה על אירוע תאונתי לחברת הביטוח</h3>
+<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.6">דיווח ראשוני לחברת הביטוח המפרט את פרטי האירוע, הנהגים המעורבים והנזקים.</p>
+</div>
+<a href="https://wa.me/972587008133?text=שלום%2C%20אני%20מעוניין%20לדווח%20על%20תאונה%20לחברת%20הביטוח" target="_blank" class="btn-download">📝 טופס דיווח לחברת הביטוח</a>
+</div>
+
+<div class="form-card">
+<div>
+<span class="form-badge">ביטוח לאומי</span>
+<h3 style="color:white;margin:15px 0 10px 0">טופס בל/211 — תביעה לתשלום דמי פגיעה</h3>
+<p style="color:var(--text-muted);font-size:0.9rem;line-height:1.6">הגשת תביעה לביטוח לאומי לקבלת דמי פגיעה עבור ימי ההיעדרות מהעבודה.</p>
+</div>
+<a href="https://wa.me/972587008133?text=שלום%2C%20אני%20רוצה%20להגיש%20תביעת%20דמי%20פגיעה%20לביטוח%20לאומי" target="_blank" class="btn-download">💰 סיוע בהגשת דמי פגיעה</a>
+</div>
+</div>
+</main>
+
+<footer class="main-footer" style="border-top:1px solid rgba(212,175,55,.1);padding:30px 0;background:var(--secondary-bg)">
+<div class="container" style="text-align:center;font-size:.85rem;color:var(--text-muted)">
+<div><a href="/privacy/" style="color:var(--accent-gold);margin:0 10px">מדיניות פרטיות</a> | <a href="/terms/" style="color:var(--accent-gold);margin:0 10px">תנאי שימוש</a> | <a href="/accessibility/" style="color:var(--accent-gold);margin:0 10px">הצהרת נגישות</a></div>
+<p style="margin-top:10px">© 2026 HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</p>
+</div>
+</footer>
+<script src="/script.js"></script>
+</body>
+</html>
