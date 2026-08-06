@@ -1,33 +1,282 @@
-# damages.co.il — Full AI Context File (llms-full.txt)
+---
+Title: דיני ראיות בתביעות נזיקין — יסודות
+URL: https://damages.co.il/defense/evidence/evidence-law-basics/
+Category: ראיות
+Source: פקודת הראיות [נוסח חדש], תשל"א-1971
+Era: עכשווי
+---
 
-## Site Overview
-damages.co.il is Israel's primary legal portal for personal injury, traffic accident compensation, medical malpractice, property damage, and insurance recovery claims.
+undefined
 
-## Key Content & Articles
-- Title: פיצוי על צליפת שוט בתאונת דרכים
-  URL: https://damages.co.il/justice/torts/car-accidents/whiplash-compensation/
-  Description: המדריך המלא לקבלת פיצוי מקסימלי מחברת הביטוח על פגיעת צליפת שוט בתאונת דרכים.
 
-- Title: רשלנות רפואית בישראל — המדריך המלא
-  URL: https://damages.co.il/justice/torts/medical-malpractice/medical-malpractice-basics/
-  Description: טיפול בתביעות מורכבות של נזקי גוף עקב טיפול רפואי לקוי או אבחון מאוחר.
+========================================
 
-- Title: נזקי רכוש — שריפות והצפות
-  URL: https://damages.co.il/justice/torts/property-damage/property-damage-fire-flood/
-  Description: ליווי בתביעות נגד חברות ביטוח על נזקי צנרת, שריפות, ונזקים למבנה ולתכולה.
+---
+Title: תאונות עבודה וביטוח לאומי — מדריך תביעות דמי פגיעה ונכות
+URL: https://damages.co.il/defense/evidence/work-accident-national-insurance-claims/
+Category: תאונות עבודה
+Source: חוק הביטוח הלאומי [נוסח משולב]
+Era: 2026
+---
 
-- Title: תביעות ביטוח בישראל — הזכויות שלך
-  URL: https://damages.co.il/justice/torts/insurance-claims/insurance-claim-guide/
-  Description: מדריך מקיף להתמודדות מול דחיות תביעה של חברות הביטוח.
+undefined
 
-- Title: פקודת הנזיקין [נוסח חדש]
-  URL: https://damages.co.il/defense/legislation/tort-ordinance-overview/
-  Description: ניתוח סעיפי הליבה בפקודת הנזיקין והעוולות האזרחיות בישראל.
 
-- Title: פסקי דין מכוננים בנזיקין
-  URL: https://damages.co.il/defense/precedents/supreme-court/landmark-tort-rulings-israel/
-  Description: פסיקות בולטות של בית המשפט העליון ששינו את חלוקת האחריות והפיצויים.
+========================================
 
-## Lead Submission API
-- POST https://damages.co.il/api/lead (Format: JSON { source, page, referrer, extra })
-- Direct WhatsApp Intake: https://wa.me/972587008133
+---
+Title: פקודת הנזיקין [נוסח חדש] — סקירה כללית
+URL: https://damages.co.il/defense/legislation/tort-ordinance-overview/
+Category: חקיקה
+Source: פקודת הנזיקין [נוסח חדש], דיני מדינת ישראל
+Era: 1968 (מקור: 1944 מנדטורי)
+---
+
+undefined
+
+
+========================================
+
+---
+Title: מגמות בדיני נזיקין בישראל — 2026
+URL: https://damages.co.il/defense/live-rulings/tort-law-trends-2026/
+Category: פסיקה חיה
+Source: בתי המשפט בישראל
+Era: 2026
+---
+
+undefined
+
+
+========================================
+
+---
+Title: פסקי דין מכוננים בדיני נזיקין בישראל
+URL: https://damages.co.il/defense/precedents/supreme-court/landmark-tort-rulings-israel/
+Category: תקדימים
+Source: בית המשפט העליון
+Era: עכשווי
+---
+
+undefined
+
+
+========================================
+
+---
+Title: דין פלילי מול דיני נזיקין — ההבדלים המהותיים
+URL: https://damages.co.il/justice/criminal-law/criminal-vs-tort-law/
+Category: דין פלילי
+Source: חוק העונשין תשל"ז-1977, פקודת הנזיקין
+Era: עכשווי
+---
+
+undefined
+
+
+========================================
+
+---
+Title: ההכרזה לכל באי עולם בדבר זכויות האדם
+URL: https://damages.co.il/justice/human-rights/universal-declaration-human-rights/
+Category: זכויות אדם
+Source: עצרת האו"ם, 10 בדצמבר 1948
+Era: 1948
+---
+
+undefined
+
+
+========================================
+
+---
+Title: מדריך אחוזי נכות בתאונות דרכים — חישוב פיצויים לפי חוק הפלת״ד
+URL: https://damages.co.il/justice/torts/car-accidents/disability-percentage-compensation-guide/
+Category: תאונות דרכים
+Source: חוק הפלת״ד ותקנות הביטוח הלאומי
+Era: 2026
+---
+
+undefined
+
+
+========================================
+
+---
+Title: תאונת פגע וברח — הגשת תביעה מול קרנית לקבלת פיצויים
+URL: https://damages.co.il/justice/torts/car-accidents/pedestrian-hit-and-run-compensation/
+Category: תאונות דרכים
+Source: חוק הפלת״ד [קרנית]
+Era: 2026
+---
+
+undefined
+
+
+========================================
+
+---
+Title: פיצוי על צליפת שוט בתאונת דרכים
+URL: https://damages.co.il/justice/torts/car-accidents/whiplash-compensation/
+Category: תאונות דרכים
+Source: פקודת הנזיקין [נוסח חדש], חוק הפיצויים לנפגעי תאונות דרכים תשל״ה-1975
+Era: contemporary
+---
+
+undefined
+
+
+========================================
+
+---
+Title: תביעות ביטוח בישראל — הזכויות שלך
+URL: https://damages.co.il/justice/torts/insurance-claims/insurance-claim-guide/
+Category: תביעות ביטוח
+Source: חוק חוזה הביטוח תשמ"א-1981
+Era: עכשווי
+---
+
+undefined
+
+
+========================================
+
+---
+Title: רשלנות רפואית בהריון ובלידה — זכויות ופיצויי עתק
+URL: https://damages.co.il/justice/torts/medical-malpractice/birth-injury-cerebral-palsy-compensation/
+Category: רשלנות רפואית
+Source: חוק זכויות החולה ופקודת הנזיקין
+Era: 2026
+---
+
+undefined
+
+
+========================================
+
+---
+Title: רשלנות רפואית בישראל — המדריך המלא
+URL: https://damages.co.il/justice/torts/medical-malpractice/medical-malpractice-basics/
+Category: רשלנות רפואית
+Source: פקודת הנזיקין, חוק זכויות החולה תשנ"ו-1996
+Era: עכשווי
+---
+
+undefined
+
+
+========================================
+
+---
+Title: רשלנות רפואית באבחון מאוחר — זכויות ופיצויים
+URL: https://damages.co.il/justice/torts/medical-malpractice/medical-malpractice-diagnosis-delay/
+Category: רשלנות רפואית
+Source: פקודת הנזיקין וחוק זכויות החולה
+Era: 2026
+---
+
+undefined
+
+
+========================================
+
+---
+Title: תביעות נזקי רכוש — שריפות והצפות
+URL: https://damages.co.il/justice/torts/property-damage/property-damage-fire-flood/
+Category: נזקי רכוש
+Source: פקודת הנזיקין, חוק המקרקעין
+Era: עכשווי
+---
+
+undefined
+
+
+========================================
+
+---
+Title: החלקה ונפילה במקום ציבורי או עסק — מדריך תביעת נזיקין
+URL: https://damages.co.il/justice/torts/property-damage/slip-and-fall-supermarket-liability/
+Category: נזקי גוף ורכוש
+Source: פקודת הנזיקין [רשלנות מחזיק]
+Era: 2026
+---
+
+undefined
+
+
+========================================
+
+---
+Title: חוקי חמורבי — החוק הכתוב הראשון בהיסטוריה
+URL: https://damages.co.il/law/comparative-law/code-of-hammurabi/
+Category: משפט השוואתי
+Source: סטלת חמורבי, מוזיאון הלובר, פריז
+Era: אכדי (1792-1750 לפנה"ס)
+---
+
+undefined
+
+
+========================================
+
+---
+Title: דיני הנזיקין הרומיים — לקס אקוויליה
+URL: https://damages.co.il/law/comparative-law/roman-tort-law/
+Category: משפט השוואתי
+Source: Lex Aquilia, Corpus Juris Civilis
+Era: רומי (286 לפנה"ס)
+---
+
+undefined
+
+
+========================================
+
+---
+Title: חוק יסוד: חופש העיסוק
+URL: https://damages.co.il/law/constitutional/basic-law-freedom-of-occupation/
+Category: חוק יסוד
+Source: ספר החוקים 1454
+Era: 1992
+---
+
+undefined
+
+
+========================================
+
+---
+Title: חוק יסוד: כבוד האדם וחירותו
+URL: https://damages.co.il/law/constitutional/basic-law-human-dignity/
+Category: חוק יסוד
+Source: ספר החוקים 1391, כ״ז באדר א' תשנ״ב
+Era: 1992
+---
+
+undefined
+
+
+========================================
+
+---
+Title: חמישה דברים — סוגי הפיצוי במשפט העברי
+URL: https://damages.co.il/law/jewish-law/five-types-of-compensation/
+Category: משפט עברי
+Source: בבא קמא פרק ח, משנה א
+Era: תלמודי
+---
+
+undefined
+
+
+========================================
+
+---
+Title: ארבעת אבות הנזיקין
+URL: https://damages.co.il/law/jewish-law/four-avot-nezikin/
+Category: משפט עברי
+Source: מסכת בבא קמא, פרק א, משנה א
+Era: תלמודי (200-500 לספירה)
+---
+
+undefined

@@ -179,6 +179,10 @@ function buildPage(meta, bodyHtml, slug, allArticles) {
 </div>
 
 <nav class="nav-links">
+<div style="display:inline-flex;background:rgba(255,255,255,0.08);border-radius:20px;padding:2px;border:1px solid rgba(212,175,55,0.3);font-size:0.8rem;margin-left:10px">
+<span style="background:var(--accent-gold);color:#0a0a1e;border-radius:16px;padding:3px 10px;font-weight:800;cursor:default">👤 Human</span>
+<a href="/llms.txt" target="_blank" style="color:var(--text-muted);text-decoration:none;padding:3px 10px;display:inline-block;font-weight:700">🤖 Machine</a>
+</div>
 <a href="/articles/" style="color:var(--accent-gold);font-weight:700">📚 כל המאמרים</a>
 <a href="/">דף הבית</a>
 <a href="/#services">התמחות</a>
@@ -499,6 +503,39 @@ Sitemap: https://damages.co.il/sitemap.xml
 `;
 fs.writeFileSync(path.join(outputDir, 'robots.txt'), robotsTxt);
 console.log(`   🤖 robots.txt — updated`);
+
+// ── Auto-generate llms.txt and llms-full.txt for Machine/AI View ──
+const llmsTxtContent = `# damages.co.il — הקרן והמאגר הלאומי לדיני נזיקין ופיצויים בישראל
+> המאגר הסטטי והמקיף בישראל לתקדימים, חוקים, פסיקות ומחשבוני פיצויים בתחומי הנזיקין, תאונות דרכים, רשלנות רפואית ותביעות ביטוח.
+
+## עמודי הליבה (Core Pages)
+- [דף הבית והמחשבון](https://damages.co.il/): מחשבון משוער לפיצויים ותחומי התמחות.
+- [מאגר המאמרים והבלוג](https://damages.co.il/articles/): אינדקס מקיף של כל המדריכים והפסיקות.
+- [הנחיות מלאות למכונות ול-LLMs](https://damages.co.il/llms-full.txt): הטקסט המלא של כל המאמרים בפורמט Markdown נקי.
+
+## מאמרים ומדריכים משפטיים (Articles Archive)
+${allArticles.map(a => `- [${a.meta.title_he || a.meta.title}](https://damages.co.il/${a.rel}/): ${a.meta.description_he || a.meta.description || ''}`).join('\n')}
+
+## פרטי ליצירת קשר וייעוץ
+- ווצאפ חירום 24/7: https://wa.me/972587008133
+- בעלים ומפעילים: HUB האב מערכות מתקדמות בע"מ
+`;
+fs.writeFileSync(path.join(outputDir, 'llms.txt'), llmsTxtContent);
+console.log(`   🤖 llms.txt — generated for AI agents`);
+
+const llmsFullTxtContent = allArticles.map(a => `---
+Title: ${a.meta.title_he || a.meta.title}
+URL: https://damages.co.il/${a.rel}/
+Category: ${a.meta.category || ''}
+Source: ${a.meta.source || ''}
+Era: ${a.meta.era || ''}
+---
+
+${a.rawBody}
+`).join('\n\n========================================\n\n');
+
+fs.writeFileSync(path.join(outputDir, 'llms-full.txt'), llmsFullTxtContent);
+console.log(`   🤖 llms-full.txt — generated (${allArticles.length} full Markdown documents)`);
 
 // ── Auto-generate legal pages ──
 const MONTH_HE = ['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'][new Date().getMonth()];
