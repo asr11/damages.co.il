@@ -66,7 +66,7 @@ function mdToHtml(md) {
         .replace(/(<tr>[\s\S]*?<\/tr>(\n)?)+/g, '<table>$&</table>');
 }
 
-function buildPage(meta, bodyHtml, slug) {
+function buildPage(meta, bodyHtml, slug, allArticles) {
     const title = meta.title_he || meta.title || 'מאמר';
     const desc = meta.description_he || meta.description || '';
     const canonical = `https://damages.co.il/${slug}/`;
@@ -177,10 +177,25 @@ function buildPage(meta, bodyHtml, slug) {
 <main class="article-wrap">
 <a href="/" class="back-link">→ חזרה לדף הבית</a>
 <div class="meta-bar">
-${meta.sefira ? `<a href="/#knowledge" class="meta-tag">✨ ספירה: ${meta.sefira}</a>` : ''}
-${meta.category ? `<a href="/#knowledge" class="meta-tag">📚 ${meta.category}</a>` : ''}
-${meta.era ? `<a href="/#knowledge" class="meta-tag">📅 תקופה: ${meta.era}</a>` : ''}
-${meta.source ? `<a href="/#knowledge" class="meta-tag">📜 מקור: ${meta.source}</a>` : ''}
+${(() => {
+    // Build smart links for meta-tags — link to related article in same category/sefira
+    const tags = [];
+    const findByCategory = (cat) => {
+        if (!cat || !allArticles) return '/#knowledge';
+        const match = allArticles.find(a => (a.meta.category === cat) && a.rel !== slug);
+        return match ? `/${match.rel}/` : '/#knowledge';
+    };
+    const findBySefira = (sef) => {
+        if (!sef || !allArticles) return '/#knowledge';
+        const match = allArticles.find(a => (a.meta.sefira === sef) && a.rel !== slug);
+        return match ? `/${match.rel}/` : '/#knowledge';
+    };
+    if (meta.sefira) tags.push(`<a href="${findBySefira(meta.sefira)}" class="meta-tag">✨ ספירה: ${meta.sefira}</a>`);
+    if (meta.category) tags.push(`<a href="${findByCategory(meta.category)}" class="meta-tag">📚 ${meta.category}</a>`);
+    if (meta.era) tags.push(`<a href="${findByCategory(meta.category)}" class="meta-tag">📅 תקופה: ${meta.era}</a>`);
+    if (meta.source) tags.push(`<a href="${findByCategory(meta.category)}" class="meta-tag">📜 מקור: ${meta.source}</a>`);
+    return tags.join('\n');
+})()}
 </div>
 ${bodyHtml}
 <div class="copy-footer">© HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</div>
@@ -261,7 +276,7 @@ ${related.map(r => `<a href="/${r.rel}/" style="display:block;padding:10px 15px;
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(
         path.join(outDir, 'index.html'),
-        buildPage(article.meta, bodyHtml + relatedHtml, article.rel)
+        buildPage(article.meta, bodyHtml + relatedHtml, article.rel, allArticles)
     );
     
     built++;
