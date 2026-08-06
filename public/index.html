@@ -111,8 +111,8 @@
             <nav class="nav-links">
                 <a href="#calculator">מחשבון פיצויים</a>
                 <a href="#services">התמחות</a>
-                <a href="https://wa.me/972587008133?text=שלום%2C%20אני%20צריך%20עזרה%20דחופה%20בנושא%20נזיקין" target="_blank" class="btn btn-whatsapp pulse" style="padding: 6px 16px; font-size: 1rem; border-radius: 20px; border: 2px solid var(--whatsapp-green); font-weight: 700; white-space: nowrap;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:18px;vertical-align:middle;margin-left:6px;">חירום 24/7
+                <a href="https://wa.me/972587008133?text=שלום%2C%20אני%20צריך%20עזרה%20דחופה%20בנושא%20נזיקין" target="_blank" class="btn btn-whatsapp pulse" style="padding: 6px 16px; font-size: 1rem; border-radius: 20px; border: 2px solid var(--whatsapp-green); background: #25D366; color: #0a0a1e; font-weight: 800; white-space: nowrap;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:18px;vertical-align:middle;margin-left:6px;filter:brightness(0)">חירום 24/7
                 </a>
                 <button onclick="document.getElementById('a11y-panel').classList.toggle('open')" aria-label="פתח תפריט נגישות" title="נגישות" class="accessibility-icon" style="color: var(--accent-gold); display: flex; align-items: center; padding: 5px; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 5px; background: none; cursor: pointer;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="אייקון נגישות"><path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/></svg>
@@ -199,12 +199,12 @@
             <div class="calc-box fade-in-up" style="background: var(--secondary-bg); padding: 40px; border-radius: 12px; border: 1px solid var(--accent-gold); max-width: 700px; margin: 0 auto;">
                 <form id="calc-form">
                     <div class="form-group">
-                        <label style="display:block; margin-bottom: 8px;">גיל הנפגע בעת האירוע:</label>
-                        <input type="number" id="calcAge" placeholder="לדוגמה: 35" required min="0" max="120">
+                        <label for="calcAge" style="display:block; margin-bottom: 8px;">גיל הנפגע בעת האירוע:</label>
+                        <input type="number" id="calcAge" name="calcAge" aria-label="גיל הנפגע בעת האירוע" placeholder="לדוגמה: 35" required min="0" max="120">
                     </div>
                     <div class="form-group">
-                        <label style="display:block; margin-bottom: 8px;">סוג הפגיעה:</label>
-                        <select id="calcType" required>
+                        <label for="calcType" style="display:block; margin-bottom: 8px;">סוג הפגיעה:</label>
+                        <select id="calcType" name="calcType" aria-label="סוג הפגיעה" required>
                             <option value="" disabled selected>בחר סוג פגיעה...</option>
                             <option value="car_accident">תאונת דרכים</option>
                             <option value="medical">רשלנות רפואית</option>
@@ -217,8 +217,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label style="display:block; margin-bottom: 8px;">רמת חומרה (מוערכת):</label>
-                        <select id="calcSeverity" required>
+                        <label for="calcSeverity" style="display:block; margin-bottom: 8px;">רמת חומרה (מוערכת):</label>
+                        <select id="calcSeverity" name="calcSeverity" aria-label="רמת חומרה מוערכת" required>
                             <option value="low">קלה (שחרור מהיר, ללא ימי מחלה משמעותיים)</option>
                             <option value="medium">בינונית (מעורבות שבר, פיזיותרפיה)</option>
                             <option value="high">קשה (אובדן כושר עבודה, נכות)</option>
@@ -329,31 +329,31 @@
     <footer class="main-footer" style="border-top: 1px solid rgba(212,175,55,0.1); padding: 40px 0;">
         <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
             <div>
-                <h4 style="color: var(--accent-gold); margin-bottom: 12px;">damages.co.il</h4>
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">פורטל הנזיקין והפיצויים מס' 1 בישראל.<br>© 2026 HUB האב מערכות מתקדמות בע"מ</p>
+                <div style="color: var(--accent-gold); font-size: 1.1rem; font-weight: 700; margin-bottom: 12px;">damages.co.il</div>
+                <p style="font-size: 0.85rem; color: #e5e7eb; line-height: 1.6;">פורטל הנזיקין והפיצויים מס' 1 בישראל.<br>© 2026 HUB האב מערכות מתקדמות בע"מ</p>
             </div>
             <div>
-                <h4 style="color: var(--accent-gold); margin-bottom: 12px;">תחומי התמחות</h4>
-                <a href="/justice/torts/car-accidents/whiplash-compensation/" style="display:block;color:var(--text-muted);font-size:0.85rem;padding:3px 0;text-decoration:none;">תאונות דרכים</a>
-                <a href="/justice/torts/medical-malpractice/medical-malpractice-basics/" style="display:block;color:var(--text-muted);font-size:0.85rem;padding:3px 0;text-decoration:none;">רשלנות רפואית</a>
-                <a href="/justice/torts/insurance-claims/insurance-claim-guide/" style="display:block;color:var(--text-muted);font-size:0.85rem;padding:3px 0;text-decoration:none;">תביעות ביטוח</a>
-                <a href="/justice/torts/property-damage/property-damage-fire-flood/" style="display:block;color:var(--text-muted);font-size:0.85rem;padding:3px 0;text-decoration:none;">נזקי רכוש</a>
+                <div style="color: var(--accent-gold); font-size: 1.1rem; font-weight: 700; margin-bottom: 12px;">תחומי התמחות</div>
+                <a href="/justice/torts/car-accidents/whiplash-compensation/" style="display:block;color:#e5e7eb;font-size:0.85rem;padding:3px 0;text-decoration:none;">תאונות דרכים</a>
+                <a href="/justice/torts/medical-malpractice/medical-malpractice-basics/" style="display:block;color:#e5e7eb;font-size:0.85rem;padding:3px 0;text-decoration:none;">רשלנות רפואית</a>
+                <a href="/justice/torts/insurance-claims/insurance-claim-guide/" style="display:block;color:#e5e7eb;font-size:0.85rem;padding:3px 0;text-decoration:none;">תביעות ביטוח</a>
+                <a href="/justice/torts/property-damage/property-damage-fire-flood/" style="display:block;color:#e5e7eb;font-size:0.85rem;padding:3px 0;text-decoration:none;">נזקי רכוש</a>
             </div>
             <div>
-                <h4 style="color: var(--accent-gold); margin-bottom: 12px;">מידע משפטי</h4>
-                <a href="/defense/legislation/tort-ordinance-overview/" style="display:block;color:var(--text-muted);font-size:0.85rem;padding:3px 0;text-decoration:none;">פקודת הנזיקין</a>
-                <a href="/defense/precedents/supreme-court/landmark-tort-rulings-israel/" style="display:block;color:var(--text-muted);font-size:0.85rem;padding:3px 0;text-decoration:none;">פסקי דין מובילים</a>
-                <a href="/defense/evidence/evidence-law-basics/" style="display:block;color:var(--text-muted);font-size:0.85rem;padding:3px 0;text-decoration:none;">דיני ראיות</a>
+                <div style="color: var(--accent-gold); font-size: 1.1rem; font-weight: 700; margin-bottom: 12px;">מידע משפטי</div>
+                <a href="/defense/legislation/tort-ordinance-overview/" style="display:block;color:#e5e7eb;font-size:0.85rem;padding:3px 0;text-decoration:none;">פקודת הנזיקין</a>
+                <a href="/defense/precedents/supreme-court/landmark-tort-rulings-israel/" style="display:block;color:#e5e7eb;font-size:0.85rem;padding:3px 0;text-decoration:none;">פסקי דין מובילים</a>
+                <a href="/defense/evidence/evidence-law-basics/" style="display:block;color:#e5e7eb;font-size:0.85rem;padding:3px 0;text-decoration:none;">דיני ראיות</a>
             </div>
             <div>
-                <h4 style="color: var(--accent-gold); margin-bottom: 12px;">יצירת קשר</h4>
-                <a href="https://wa.me/972587008133" target="_blank" style="display:block;color:var(--text-muted);font-size:0.85rem;padding:3px 0;text-decoration:none;">💬 ווצאפ — 058-700-8133</a>
+                <div style="color: var(--accent-gold); font-size: 1.1rem; font-weight: 700; margin-bottom: 12px;">יצירת קשר</div>
+                <a href="https://wa.me/972587008133" target="_blank" style="display:block;color:#e5e7eb;font-size:0.85rem;padding:3px 0;text-decoration:none;">💬 ווצאפ — 058-700-8133</a>
                 <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.05)">
-                    <a href="/privacy/" style="display:block;color:var(--text-muted);font-size:0.8rem;padding:2px 0;text-decoration:none;">מדיניות פרטיות</a>
-                    <a href="/terms/" style="display:block;color:var(--text-muted);font-size:0.8rem;padding:2px 0;text-decoration:none;">תנאי שימוש</a>
-                    <a href="/accessibility/" style="display:block;color:var(--text-muted);font-size:0.8rem;padding:2px 0;text-decoration:none;">♿ הצהרת נגישות</a>
+                    <a href="/privacy/" style="display:block;color:#e5e7eb;font-size:0.8rem;padding:2px 0;text-decoration:none;">מדיניות פרטיות</a>
+                    <a href="/terms/" style="display:block;color:#e5e7eb;font-size:0.8rem;padding:2px 0;text-decoration:none;">תנאי שימוש</a>
+                    <a href="/accessibility/" style="display:block;color:#e5e7eb;font-size:0.8rem;padding:2px 0;text-decoration:none;">♿ הצהרת נגישות</a>
                 </div>
-                <p style="font-size:0.8rem;color:var(--text-muted);margin-top:10px;opacity:0.6;">המידע באתר אינו מהווה ייעוץ משפטי ואינו תחליף להתייעצות עם עורך דין.</p>
+                <p style="font-size:0.8rem;color:#9ca3af;margin-top:10px;">המידע באתר אינו מהווה ייעוץ משפטי ואינו תחליף להתייעצות עם עורך דין.</p>
             </div>
         </div>
     </footer>
