@@ -392,17 +392,19 @@ const blogCardsHtml = allArticles.map(art => {
     const desc = art.meta.description_he || art.meta.description || '';
     const era = art.meta.era || '2026';
     return `
-    <article style="background:var(--secondary-bg);border:1px solid rgba(212,175,55,0.2);border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;transition:transform 0.2s" class="blog-card">
-        <div>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-                <span style="background:rgba(212,175,55,0.15);color:var(--accent-gold);padding:4px 12px;border-radius:15px;font-size:0.8rem;font-weight:700">${cat}</span>
-                <span style="font-size:0.75rem;color:var(--text-muted)">📅 ${era}</span>
+    <a href="/${art.rel}/" style="text-decoration:none;color:inherit;display:flex" class="blog-card-link">
+        <article style="background:var(--secondary-bg);border:1px solid rgba(212,175,55,0.2);border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;width:100%;transition:all 0.2s ease" class="blog-card">
+            <div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                    <span style="background:rgba(212,175,55,0.15);color:var(--accent-gold);padding:4px 12px;border-radius:15px;font-size:0.8rem;font-weight:700">${cat}</span>
+                    <span style="font-size:0.75rem;color:var(--text-muted)">📅 ${era}</span>
+                </div>
+                <h3 style="margin:0 0 10px 0;font-size:1.25rem;color:white">${title}</h3>
+                <p style="margin:0 0 15px 0;font-size:0.9rem;color:var(--text-muted);line-height:1.6">${desc.substring(0, 110)}...</p>
             </div>
-            <h3 style="margin:0 0 10px 0;font-size:1.25rem;color:white"><a href="/${art.rel}/" style="color:inherit;text-decoration:none">${title}</a></h3>
-            <p style="margin:0 0 15px 0;font-size:0.9rem;color:var(--text-muted);line-height:1.6">${desc.substring(0, 110)}...</p>
-        </div>
-        <a href="/${art.rel}/" style="color:var(--accent-gold);font-weight:700;text-decoration:none;font-size:0.9rem">קרא את המדריך המלא ←</a>
-    </article>`;
+            <span style="color:var(--accent-gold);font-weight:700;font-size:0.9rem">קרא את המדריך המלא ←</span>
+        </article>
+    </a>`;
 }).join('\n');
 
 const blogIndexHtml = `<!DOCTYPE html>
