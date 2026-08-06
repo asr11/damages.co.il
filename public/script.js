@@ -1,0 +1,162 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Intersection Observer for fade-in animations on scroll
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Optional: stop observing once it's visible
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const fadeElements = document.querySelectorAll('.fade-in-up');
+    fadeElements.forEach(el => observer.observe(el));
+
+    // 2. Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // 3. (Removed Lead Form Submission - Now WhatsApp Only)
+
+    // 4. Handle Calculator Logic
+    const calcForm = document.getElementById('calc-form');
+    if (calcForm) {
+        calcForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const age = parseInt(document.getElementById('calcAge').value, 10);
+            const type = document.getElementById('calcType').value;
+            const severity = document.getElementById('calcSeverity').value;
+
+            // Simple mock frontend calculation reflecting backend logic
+            let baseAmount = 0;
+            switch(type) {
+                case 'car_accident': baseAmount = 30000; break;
+                case 'medical':     baseAmount = 60000; break;
+                case 'work':        baseAmount = 35000; break;
+                case 'slip':        baseAmount = 20000; break;
+                case 'assault':     baseAmount = 25000; break;
+                case 'property':    baseAmount = 15000; break;
+                case 'insurance':   baseAmount = 20000; break;
+                default:            baseAmount = 18000;
+            }
+            
+            const severityMultiplier = { 'low': 1, 'medium': 2.5, 'high': 5 };
+            baseAmount *= (severityMultiplier[severity] || 1);
+            
+            if (age >= 18 && age <= 45) {
+                baseAmount *= 1.3;
+            } else if (age > 45 && age <= 65) {
+                baseAmount *= 1.1;
+            }
+            
+            const finalAmount = Math.floor(baseAmount);
+            
+            // Format number to ILS currency string
+            const formatter = new Intl.NumberFormat('he-IL', {
+                style: 'currency',
+                currency: 'ILS',
+                maximumFractionDigits: 0
+            });
+            
+            document.getElementById('calcAmount').innerText = formatter.format(finalAmount);
+            
+            // Show result with animation
+            const resultDiv = document.getElementById('calcResult');
+            resultDiv.style.display = 'block';
+            resultDiv.classList.add('pulse');
+            setTimeout(() => resultDiv.classList.remove('pulse'), 2000);
+            
+            // Update WhatsApp Buttons with calculated data
+            const typeNames = {'car_accident':'תאונת דרכים','medical':'רשלנות רפואית','work':'תאונת עבודה','slip':'החלקה/נפילה','assault':'תקיפה/אלימות','property':'נזק לרכוש','insurance':'תביעת ביטוח','other':'אחר'};
+            const typeName = typeNames[type] || type;
+            const message = `שלום, בדקתי במחשבון הפיצויים באתר damages.co.il.\nסוג פגיעה: ${typeName}\nסכום משוער: ${formatter.format(finalAmount)}\nאשמח לבדוק זכאות.`;
+            const encodedMessage = encodeURIComponent(message);
+            const waUrl = `https://wa.me/972587008133?text=${encodedMessage}`;
+            
+            const ceoBtn = document.getElementById('whatsapp-ceo-btn');
+            if (ceoBtn) ceoBtn.href = waUrl;
+            
+            const heroBtns = document.querySelectorAll('.btn-whatsapp');
+            heroBtns.forEach(btn => btn.href = waUrl);
+        });
+    }
+
+    // 5. Client-Side Search Engine
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    let searchIndex = [];
+
+    if (searchInput && searchResults) {
+        // Fetch the index once
+        fetch('/search_index.json')
+            .then(res => res.json())
+            .then(data => {
+                searchIndex = data;
+            })
+            .catch(err => console.error('Failed to load search index:', err));
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            
+            if (query.length < 2) {
+                searchResults.style.display = 'none';
+                return;
+            }
+
+            const results = searchIndex.filter(item => {
+                return (item.title || '').toLowerCase().includes(query) || 
+                       (item.title_he || '').includes(query) ||
+                       (item.description || '').toLowerCase().includes(query) || 
+                       (item.description_he || '').includes(query) ||
+                       (item.keywords || '').toLowerCase().includes(query) ||
+                       (item.keywords_he || '').includes(query) ||
+                       (item.category || '').includes(query);
+            });
+
+            if (results.length > 0) {
+                searchResults.innerHTML = results.slice(0, 5).map(item => `
+                    <a href="${item.url}" style="display: block; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); text-decoration: none; color: white;">
+                        <h4 style="margin: 0 0 5px 0; color: var(--accent-gold); font-size: 1rem;">${item.title_he || item.title}</h4>
+                        <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">${(item.description_he || item.description || '').substring(0, 80)}...</p>
+                        <span style="font-size: 0.75rem; color: rgba(212,175,55,0.6);">${item.category || ''}</span>
+                    </a>
+                `).join('');
+                searchResults.style.display = 'block';
+            } else {
+                searchResults.innerHTML = '<div style="padding: 15px; color: var(--text-muted); text-align: center;">לא נמצאו תוצאות.</div>';
+                searchResults.style.display = 'block';
+            }
+        });
+
+        // Hide results on click outside
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
+        
+        // Show results on focus if there's a query
+        searchInput.addEventListener('focus', () => {
+            if (searchInput.value.trim().length >= 2) {
+                searchResults.style.display = 'block';
+            }
+        });
+    }
+});

@@ -1,0 +1,20 @@
+{
+  "name": "damages-lead-engine",
+  "version": "1.0.0",
+  "description": "Lead Generation Engine for damages.co.il",
+  "main": "api/scraper.js",
+  "scripts": {
+    "build": "node scripts/build_search_index.js && node scripts/build_static.js",
+    "serve": "npx serve public -l 8081",
+    "start": "node api/scraper.js",
+    "generate:articles": "node scripts/run_wp_articles_massive.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ssh2": "^1.14.0",
+    "twilio": "^4.19.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3"
+  }
+}

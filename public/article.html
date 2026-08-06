@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מאגר הידע האקאשי | damages.co.il</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .article-container {
+            max-width: 800px;
+            margin: 100px auto 60px;
+            padding: 40px;
+            background: var(--secondary-bg);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .article-container h1 { color: var(--accent-gold); font-size: 2.2rem; border-bottom: 2px solid var(--accent-gold); padding-bottom: 15px; }
+        .article-container h2 { color: var(--accent-gold); font-size: 1.6rem; margin-top: 30px; }
+        .article-container h3 { color: var(--text-light); font-size: 1.3rem; margin-top: 20px; }
+        .article-container p { color: var(--text-muted); line-height: 1.8; margin: 10px 0; }
+        .article-container blockquote { border-right: 4px solid var(--accent-gold); padding: 10px 20px; margin: 20px 0; background: rgba(212,175,55,0.05); border-radius: 0 8px 8px 0; }
+        .article-container blockquote p { color: var(--text-light); font-style: italic; }
+        .article-container table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .article-container th { background: rgba(212,175,55,0.15); color: var(--accent-gold); padding: 12px; text-align: right; }
+        .article-container td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); }
+        .article-container ul, .article-container ol { color: var(--text-muted); padding-right: 20px; }
+        .article-container li { margin: 8px 0; line-height: 1.7; }
+        .article-container hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0; }
+        .article-meta { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 25px; }
+        .meta-tag { background: rgba(212,175,55,0.1); color: var(--accent-gold); padding: 4px 12px; border-radius: 12px; font-size: 0.85rem; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-gold); margin-bottom: 20px; font-weight: 600; }
+        .back-btn:hover { color: var(--accent-gold-hover); }
+        .article-loading { text-align: center; padding: 60px; color: var(--text-muted); }
+        .copyright-footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="header-left" style="display: flex; align-items: center;">
+                <a href="/" class="logo" style="display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; color: inherit;">
+                    <h1 style="margin:0; font-size:1.8rem;">damages<span style="color:var(--accent-gold);">.co.il</span></h1>
+                    <span style="font-size: 0.8rem; color: var(--accent-gold); margin-top: -3px; font-weight: 600;">פורטל הנזיקין והפיצויים מס' 1 בישראל</span>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="/">דף הבית</a>
+                <a href="/#services">התמחות</a>
+                <a href="https://wa.me/972587008133" class="btn btn-whatsapp" style="padding: 6px 16px; font-size: 1rem; border-radius: 20px;">חירום 24/7</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="article-container" id="articleContainer">
+        <div class="article-loading">🔮 טוען תוכן...</div>
+    </main>
+
+    <footer class="main-footer">
+        <p>© HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</p>
+    </footer>
+
+    <script>
+    (function() {
+        const container = document.getElementById('articleContainer');
+        
+        // Get article path from query parameter
+        const params = new URLSearchParams(window.location.search);
+        const articlePath = params.get('path');
+        
+        if (!articlePath) {
+            container.innerHTML = '<a href="/" class="back-btn">→ חזרה לדף הבית</a><h1 style="color:var(--accent-gold)">מאגר הידע האקאשי</h1><p style="color:var(--text-muted)">חפש מאמרים בשורת החיפוש בדף הבית.</p>';
+            return;
+        }
+        
+        const mdPath = articlePath.endsWith('.md') ? articlePath : articlePath + '.md';
+        
+        fetch(mdPath)
+            .then(res => {
+                if (!res.ok) throw new Error('Not found');
+                return res.text();
+            })
+            .then(md => {
+                // Extract frontmatter
+                const fmMatch = md.match(/^---\n([\s\S]*?)\n---/);
+                let meta = {};
+                let body = md;
+                
+                if (fmMatch) {
+                    body = md.slice(fmMatch[0].length).trim();
+                    fmMatch[1].split('\n').forEach(line => {
+                        const i = line.indexOf(':');
+                        if (i > -1) {
+                            const key = line.substring(0, i).trim();
+                            const val = line.substring(i+1).trim().replace(/^"|"$/g, '');
+                            meta[key] = val;
+                        }
+                    });
+                }
+                
+                // Set page title
+                document.title = (meta.title_he || meta.title || 'מאמר') + ' | damages.co.il';
+                
+                // Render meta tags
+                let metaHtml = '<a href="/" class="back-btn">→ חזרה לדף הבית</a>';
+                metaHtml += '<div class="article-meta">';
+                if (meta.sefira) metaHtml += `<span class="meta-tag">ספירה: ${meta.sefira}</span>`;
+                if (meta.category) metaHtml += `<span class="meta-tag">${meta.category}</span>`;
+                if (meta.era) metaHtml += `<span class="meta-tag">תקופה: ${meta.era}</span>`;
+                if (meta.source) metaHtml += `<span class="meta-tag">מקור: ${meta.source}</span>`;
+                metaHtml += '</div>';
+                
+                // Simple Markdown to HTML
+                let html = body
+                    .replace(/^### (.*$)/gm, '<h3>$1</h3>')
+                    .replace(/^## (.*$)/gm, '<h2>$1</h2>')
+                    .replace(/^# (.*$)/gm, '<h1>$1</h1>')
+                    .replace(/^\> (.*$)/gm, '<blockquote><p>$1</p></blockquote>')
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/^\- (.*$)/gm, '<li>$1</li>')
+                    .replace(/^\d+\. (.*$)/gm, '<li>$1</li>')
+                    .replace(/\n\n/g, '</p><p>')
+                    .replace(/^---$/gm, '<hr>')
+                    .replace(/\|(.+)\|/g, function(match) {
+                        const cells = match.split('|').filter(c => c.trim());
+                        if (cells.every(c => c.trim().match(/^-+$/))) return '';
+                        const tag = match.includes('---') ? 'th' : 'td';
+                        return '<tr>' + cells.map(c => `<${tag}>${c.trim()}</${tag}>`).join('') + '</tr>';
+                    });
+                
+                // Wrap lists
+                html = html.replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>');
+                // Wrap tables
+                html = html.replace(/(<tr>.*<\/tr>\n?)+/g, '<table>$&</table>');
+                
+                container.innerHTML = metaHtml + '<div class="article-body">' + html + '</div>' +
+                    '<div class="copyright-footer">© HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</div>';
+            })
+            .catch(err => {
+                container.innerHTML = `
+                    <a href="/" class="back-btn">→ חזרה לדף הבית</a>
+                    <h1 style="color: var(--accent-gold);">404 — המסמך לא נמצא</h1>
+                    <p style="color: var(--text-muted);">המסמך המבוקש אינו קיים במאגר האקאשי.</p>
+                    <a href="/" class="btn btn-primary" style="margin-top: 20px;">חזרה לדף הבית</a>`;
+            });
+    })();
+    </script>
+</body>
+</html>

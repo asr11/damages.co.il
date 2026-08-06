@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://damages.co.il/sitemap.xml
+
+# Akasha Vault — 16 articles indexed
+# Auto-generated 2026-08-06
+# © HUB האב מערכות מתקדמות בע"מ

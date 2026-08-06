@@ -1,0 +1,5 @@
+node_modules/
+.env
+deploy/*.zip
+public/assets/hero_bg.png
+public/assets/hero_bg_backup.png
