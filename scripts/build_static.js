@@ -497,7 +497,6 @@ fs.writeFileSync(path.join(outputDir, 'robots.txt'), robotsTxt);
 console.log(`   🤖 robots.txt — updated`);
 
 // ── Auto-generate legal pages ──
-const DOMAIN = 'https://damages.co.il';
 const YEAR = new Date().getFullYear();
 const MONTH_HE = ['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'][new Date().getMonth()];
 const UPDATED = `${MONTH_HE} ${YEAR}`;
