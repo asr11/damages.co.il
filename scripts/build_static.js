@@ -371,7 +371,6 @@ ${related.map(r => `<a href="/${r.rel}/" style="display:block;padding:10px 15px;
 </a>
 </div>`;
     }
-    
     const outDir = path.join(outputDir, article.rel);
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(
@@ -383,12 +382,83 @@ ${related.map(r => `<a href="/${r.rel}/" style="display:block;padding:10px 15px;
     console.log(`   ✅ /${article.rel}/`);
 });
 
+// ── Auto-generate /articles/ Blog Category Index Page ──
+const blogCardsHtml = allArticles.map(art => {
+    const cat = art.meta.category || 'כללי';
+    const title = art.meta.title_he || art.meta.title;
+    const desc = art.meta.description_he || art.meta.description || '';
+    const era = art.meta.era || '2026';
+    return `
+    <article style="background:var(--secondary-bg);border:1px solid rgba(212,175,55,0.2);border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;transition:transform 0.2s" class="blog-card">
+        <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                <span style="background:rgba(212,175,55,0.15);color:var(--accent-gold);padding:4px 12px;border-radius:15px;font-size:0.8rem;font-weight:700">${cat}</span>
+                <span style="font-size:0.75rem;color:var(--text-muted)">📅 ${era}</span>
+            </div>
+            <h3 style="margin:0 0 10px 0;font-size:1.25rem;color:white"><a href="/${art.rel}/" style="color:inherit;text-decoration:none">${title}</a></h3>
+            <p style="margin:0 0 15px 0;font-size:0.9rem;color:var(--text-muted);line-height:1.6">${desc.substring(0, 110)}...</p>
+        </div>
+        <a href="/${art.rel}/" style="color:var(--accent-gold);font-weight:700;text-decoration:none;font-size:0.9rem">קרא את המדריך המלא ←</a>
+    </article>`;
+}).join('\n');
+
+const blogIndexHtml = `<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אינדקס מדריכים ומאמרים משפטיים | damages.co.il</title>
+<meta name="description" content="מאגר המאמרים, המדריכים והפסיקות המקיף בישראל בתחומי הנזיקין, תאונות דרכים, רשלנות רפואית ותביעות ביטוח.">
+<link rel="canonical" href="${DOMAIN}/articles/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="main-header">
+<div class="container" style="display:flex;align-items:center;justify-content:space-between">
+<a href="/" style="text-decoration:none;color:inherit"><div style="font-size:1.8rem;font-weight:800;margin:0">damages<span style="color:var(--accent-gold)">.co.il</span></div></a>
+<nav class="nav-links">
+<a href="/">דף הבית</a>
+<a href="/#calculator">מחשבון פיצויים</a>
+<a href="https://wa.me/972587008133" target="_blank" class="btn btn-whatsapp" style="padding:6px 16px;font-size:1rem;border-radius:20px">חירום 24/7</a>
+</nav>
+</div>
+</header>
+
+<main style="max-width:1100px;margin:100px auto 60px;padding:0 20px" role="main">
+<div style="text-align:center;margin-bottom:40px">
+<h1 style="color:var(--accent-gold);font-size:2.4rem;margin-bottom:10px">📚 מאגר המדריכים והמאמרים המשפטיים</h1>
+<p style="color:var(--text-muted);font-size:1.1rem">כל הפסיקות, החוקים והזכויות בתחומי הנזיקין והפיצויים בישראל</p>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));gap:24px">
+${blogCardsHtml}
+</div>
+</main>
+
+<footer class="main-footer" style="border-top:1px solid rgba(212,175,55,.1);padding:30px 0;background:var(--secondary-bg)">
+<div class="container" style="text-align:center;font-size:.85rem;color:var(--text-muted)">
+<div><a href="/privacy/" style="color:var(--accent-gold);margin:0 10px">מדיניות פרטיות</a> | <a href="/terms/" style="color:var(--accent-gold);margin:0 10px">תנאי שימוש</a> | <a href="/accessibility/" style="color:var(--accent-gold);margin:0 10px">הצהרת נגישות</a></div>
+<p style="margin-top:10px">© ${YEAR} HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</p>
+</div>
+</footer>
+</body>
+</html>`;
+
+const articlesIndexDir = path.join(outputDir, 'articles');
+fs.mkdirSync(articlesIndexDir, { recursive: true });
+fs.writeFileSync(path.join(articlesIndexDir, 'index.html'), blogIndexHtml);
+console.log('   ✅ /articles/ — generated blog index page');
+
 console.log(`\n⚡ Built ${built} static HTML pages with cross-links. Pure iron.`);
 
 // ── Auto-generate sitemap.xml ──
 const today = new Date().toISOString().split('T')[0];
 const sitemapEntries = [
     { loc: '/', freq: 'weekly', priority: '1.0' },
+    { loc: '/articles/', freq: 'weekly', priority: '0.9' },
     ...allArticles.map(a => ({
         loc: `/${a.rel}/`,
         freq: a.pillar === 'defense' && a.rel.includes('live-rulings') ? 'weekly' : 'monthly',
