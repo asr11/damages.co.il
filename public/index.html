@@ -92,7 +92,7 @@
 <body>
     <a href="#main-content" class="skip-nav" style="position:absolute;top:-999px;left:-999px;z-index:9999;background:var(--accent-gold);color:#0a0a1e;padding:10px 20px;font-weight:700;border-radius:0 0 8px 8px;" onfocus="this.style.top='0';this.style.left='50%';this.style.transform='translateX(-50%)'" onblur="this.style.top='-999px'">דלג לתוכן הראשי</a>
     <header class="main-header">
-        <div class="container">
+        <div class="container" style="display:flex;align-items:center;justify-content:space-between">
             <div class="header-left" style="display: flex; align-items: center;">
                 <a href="/" class="logo" style="display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; color: inherit;">
                     <div style="font-size:1.8rem;font-weight:800;margin:0">damages<span>.co.il</span></div>
@@ -116,8 +116,53 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:18px;vertical-align:middle;margin-left:6px;filter:brightness(0)">חירום 24/7
                 </a>
             </nav>
+
+            <button class="hamburger-btn" onclick="document.getElementById('mobile-drawer').classList.toggle('open')" aria-label="תפריט ניווט">
+                ☰
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Drawer Panel -->
+    <div id="mobile-drawer" class="mobile-drawer">
+        <div class="mobile-drawer-header">
+            <div style="font-weight:800;font-size:1.3rem;color:var(--accent-gold)">damages.co.il</div>
+            <button onclick="document.getElementById('mobile-drawer').classList.remove('open')" style="background:none;border:none;color:white;font-size:1.8rem;cursor:pointer">&times;</button>
+        </div>
+        <div class="mobile-drawer-links">
+            <a href="/" onclick="document.getElementById('mobile-drawer').classList.remove('open')">🏠 דף הבית</a>
+            <a href="#calculator" onclick="document.getElementById('mobile-drawer').classList.remove('open')">🧮 מחשבון פיצויים</a>
+            <a href="#services" onclick="document.getElementById('mobile-drawer').classList.remove('open')">⚖️ תחומי התמחות</a>
+            <a href="#knowledge" onclick="document.getElementById('mobile-drawer').classList.remove('open')">📚 מאגר הידע</a>
+            <a href="/privacy/" onclick="document.getElementById('mobile-drawer').classList.remove('open')">🔒 מדיניות פרטיות</a>
+            <a href="/accessibility/" onclick="document.getElementById('mobile-drawer').classList.remove('open')">♿ הצהרת נגישות</a>
+        </div>
+        <div style="margin-top:auto;padding-top:20px">
+            <a href="https://wa.me/972587008133?text=שלום%2C%20אני%20צריך%20ייעוץ%20משפטי" target="_blank" class="btn btn-whatsapp" style="display:block;text-align:center;padding:12px;border-radius:12px;background:#25D366;color:#0a0a1e;font-weight:800;text-decoration:none">
+                💬 ייעוץ חירום בווצאפ
+            </a>
+        </div>
+    </div>
+
+    <!-- App-Level Bottom Navigation Bar -->
+    <nav class="app-bottom-bar" aria-label="סרגל ניווט תחתון">
+        <a href="/" class="app-bar-item active">
+            <span>🏠</span>
+            <span>בית</span>
+        </a>
+        <a href="#calculator" class="app-bar-item">
+            <span>🧮</span>
+            <span>מחשבון</span>
+        </a>
+        <a href="#services" class="app-bar-item">
+            <span>⚖️</span>
+            <span>התמחות</span>
+        </a>
+        <a href="https://wa.me/972587008133?text=שלום%2C%20אני%20מגיע%20מסרגל%20הניווט%20באפליקציה" target="_blank" class="app-bar-item" style="color:#25D366">
+            <span>💬</span>
+            <span>ווצאפ</span>
+        </a>
+    </nav>
 
     <main id="main-content">
     <section class="hero" id="home">

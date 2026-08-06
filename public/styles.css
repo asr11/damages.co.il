@@ -403,8 +403,107 @@ a {
     }
     
     .nav-links {
-        display: none; /* Mobile menu needed for real prod */
+        display: none;
     }
+    .hamburger-btn {
+        display: flex !important;
+    }
+}
+
+/* App-Level Mobile Bottom Bar & Drawer */
+.hamburger-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--accent-gold);
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: var(--secondary-bg);
+    border-left: 2px solid var(--accent-gold);
+    z-index: 10005;
+    transition: right 0.3s ease;
+    padding: 20px;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.7);
+    display: flex;
+    flex-direction: column;
+}
+.mobile-drawer.open {
+    right: 0;
+}
+.mobile-drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(252,175,55,0.2);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+.mobile-drawer-links a {
+    display: block;
+    padding: 12px 15px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: background 0.2s;
+}
+.mobile-drawer-links a:hover {
+    background: rgba(212,175,55,0.15);
+    color: var(--accent-gold);
+}
+
+.app-bottom-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 62px;
+    background: #090d1a;
+    border-top: 1px solid rgba(212,175,55,0.3);
+    z-index: 9997;
+    justify-content: space-around;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+@media (max-width: 900px) {
+    .app-bottom-bar {
+        display: flex;
+    }
+    body {
+        padding-bottom: 62px;
+    }
+    #a11y-fab {
+        bottom: 75px !important;
+    }
+}
+.app-bar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.app-bar-item svg, .app-bar-item img {
+    width: 22px;
+    height: 22px;
+    margin-bottom: 3px;
+}
+.app-bar-item:hover, .app-bar-item.active {
+    color: var(--accent-gold);
 }
 
 /* 10x Header Additions */
