@@ -207,7 +207,7 @@ ${bodyHtml}
 </div>
 <div class="copy-footer">© HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</div>
 </main>
-${getFooterHTML()}`,-StartLine:176,TargetContent:
+${getFooterHTML()}
 
 <div id="a11y-panel" class="a11y-panel" role="dialog" aria-label="תפריט נגישות">
 <button class="a11y-close" onclick="this.parentElement.classList.remove('open')" aria-label="סגור תפריט נגישות">&times;</button>
