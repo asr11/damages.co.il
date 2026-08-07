@@ -548,6 +548,11 @@ const llmsTxtContent = `# damages.co.il — הקרן והמאגר הלאומי �
 - [מאגר המאמרים והבלוג](https://damages.co.il/articles/): אינדקס מקיף של כל המדריכים והפסיקות.
 - [הנחיות מלאות למכונות ול-LLMs](https://damages.co.il/llms-full.txt): הטקסט המלא של כל המאמרים בפורמט Markdown נקי.
 
+## עמודי מפתחות ומשאבים
+- [מרכז הטפסים המשפטיים הרשמיים](https://damages.co.il/forms/): טפסים להורדה ואישורים רשמיים בתאונות דרכים, עבודה וביטוח לאומי.
+- [אינדקס עורכי הדין המומחים בנזיקין](https://damages.co.il/lawyers/): נבחרת עורכי הדין המאומתים בתחומי הנזיקין והפיצויים.
+- [פורטל עורכי דין שותפים](https://damages.co.il/lawyer/login.html): אזור התחברות ופרסום מאמרים תחת שם עוה"ד.
+
 ## מאמרים ומדריכים משפטיים (Articles Archive)
 ${allArticles.map(a => `- [${a.meta.title_he || a.meta.title}](https://damages.co.il/${a.rel}/): ${a.meta.description_he || a.meta.description || ''}`).join('\n')}
 
