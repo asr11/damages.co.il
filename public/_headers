@@ -1,0 +1,32 @@
+# Cloudflare Pages Caching & Headers Policy for damages.co.il
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Access-Control-Allow-Origin: *
+
+# Static Assets Caching (CSS, JS, Fonts, Images, WebP, SVG)
+/styles.css
+  Cache-Control: public, max-age=31536000, immutable
+  Expires: Fri, 31 Dec 2027 23:59:59 GMT
+
+/script.js
+  Cache-Control: public, max-age=31536000, immutable
+  Expires: Fri, 31 Dec 2027 23:59:59 GMT
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+  Expires: Fri, 31 Dec 2027 23:59:59 GMT
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+  Expires: Fri, 31 Dec 2027 23:59:59 GMT
+
+# HTML Pages Caching
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/search_index.json
+  Cache-Control: public, max-age=3600, must-revalidate
