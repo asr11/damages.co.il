@@ -357,36 +357,7 @@ const blogIndexHtml = `<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
-<header class="main-header">
-<div class="container" style="display:flex;align-items:center;justify-content:space-between">
-<div class="header-left" style="display:flex;align-items:center">
-<a href="/" class="logo" style="display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;color:inherit">
-<div style="font-size:1.8rem;font-weight:800;margin:0">damages<span style="color:var(--accent-gold)">.co.il</span></div>
-<span style="font-size:.8rem;color:var(--accent-gold);font-weight:600;margin-top:-3px">פורטל הנזיקין והפיצויים מס' 1 בישראל</span>
-</a>
-</div>
-
-<div class="header-center" style="flex:1;max-width:350px;margin:0 20px;display:none;position:relative" id="desktop-search">
-<div class="search-bar" style="position:relative;width:100%">
-<input type="text" id="searchInput" placeholder="חפש פסיקות, מאמרים או שאלות..." autocomplete="off" style="width:100%;padding:10px 40px 10px 15px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.3);color:white;font-family:inherit;font-size:0.9rem;transition:var(--transition-fast)">
-<svg style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;fill:var(--text-muted)" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-</div>
-<div id="searchResults" style="display:none;position:absolute;top:45px;right:0;left:0;background:var(--secondary-bg);border-radius:8px;border:1px solid var(--accent-gold);max-height:300px;overflow-y:auto;z-index:1001;box-shadow:0 10px 25px rgba(0,0,0,0.5)"></div>
-</div>
-
-<nav class="nav-links">
-<div style="display:inline-flex;background:rgba(255,255,255,0.08);border-radius:20px;padding:2px;border:1px solid rgba(212,175,55,0.3);font-size:0.8rem;margin-left:10px">
-<span style="background:var(--accent-gold);color:#0a0a1e;border-radius:16px;padding:3px 10px;font-weight:800;cursor:default">👤 Human</span>
-<a href="/llms.txt" target="_blank" style="color:var(--text-muted);text-decoration:none;padding:3px 10px;display:inline-block;font-weight:700">🤖 Machine</a>
-</div>
-<a href="/articles/" style="color:var(--accent-gold);font-weight:700">📚 כל המאמרים</a>
-<a href="/">דף הבית</a>
-<a href="/#calculator">מחשבון פיצויים</a>
-<a href="https://wa.me/972587008133" target="_blank" class="btn btn-whatsapp" style="padding:6px 16px;font-size:1rem;border-radius:20px">חירום 24/7</a>
-</nav>
-</div>
-</header>
+${getHeaderHTML('articles')}
 
 <main style="max-width:1100px;margin:100px auto 60px;padding:0 20px" role="main">
 <div style="text-align:center;margin-bottom:40px">
@@ -399,12 +370,7 @@ ${blogCardsHtml}
 </div>
 </main>
 
-<footer class="main-footer" style="border-top:1px solid rgba(212,175,55,.1);padding:30px 0;background:var(--secondary-bg)">
-<div class="container" style="text-align:center;font-size:.85rem;color:var(--text-muted)">
-<div><a href="/privacy/" style="color:var(--accent-gold);margin:0 10px">מדיניות פרטיות</a> | <a href="/terms/" style="color:var(--accent-gold);margin:0 10px">תנאי שימוש</a> | <a href="/accessibility/" style="color:var(--accent-gold);margin:0 10px">הצהרת נגישות</a></div>
-<p style="margin-top:10px">© ${YEAR} HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</p>
-</div>
-</footer>
+${getFooterHTML()}`,StartLine:360,TargetContent:
 <script src="/script.js"></script>
 </body>
 </html>`;
