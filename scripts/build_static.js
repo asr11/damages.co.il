@@ -178,7 +178,7 @@ function buildPage(meta, bodyHtml, slug, allArticles) {
 <div class="header-left" style="display:flex;align-items:center">
 <a href="/" class="logo" style="display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;color:inherit">
 <div style="font-size:1.8rem;font-weight:800;margin:0">damages<span style="color:var(--accent-gold)">.co.il</span></div>
-<span style="font-size:.8rem;color:var(--accent-gold);font-weight:600;margin-top:-3px">פורטל הנזיקין והפיצויים מס' 1 בישראל</span>
+<span style="font-size:.8rem;color:var(--accent-gold);font-weight:600;margin-top:-3px">פורטל המידע והזכויות בנזיקין בישראל</span>
 </a>
 </div>
 
