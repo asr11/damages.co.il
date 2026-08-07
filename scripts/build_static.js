@@ -370,7 +370,7 @@ ${blogCardsHtml}
 </div>
 </main>
 
-${getFooterHTML()}`,StartLine:360,TargetContent:
+${getFooterHTML()}
 <script src="/script.js"></script>
 </body>
 </html>`;
