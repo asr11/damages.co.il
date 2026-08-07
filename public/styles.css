@@ -408,6 +408,9 @@ a {
     .hamburger-btn {
         display: flex !important;
     }
+    #a11y-fab {
+        bottom: 85px !important;
+    }
 }
 
 /* App-Level Mobile Bottom Bar & Drawer */
