@@ -500,13 +500,13 @@ const today = new Date().toISOString().split('T')[0];
 const sitemapEntries = [
     { loc: '/', freq: 'weekly', priority: '1.0' },
     { loc: '/articles/', freq: 'weekly', priority: '0.9' },
-    { loc: '/forms/', freq: 'weekly', priority: '0.8' },
-    { loc: '/lawyers/', freq: 'weekly', priority: '0.8' },
-    { loc: '/lawyer/login.html', freq: 'monthly', priority: '0.6' },
+    { loc: '/forms/', freq: 'weekly', priority: '0.9' },
+    { loc: '/lawyers/', freq: 'weekly', priority: '0.9' },
+    { loc: '/lawyer/login.html', freq: 'monthly', priority: '0.5' },
     ...allArticles.map(a => ({
         loc: `/${a.rel}/`,
         freq: a.pillar === 'defense' && a.rel.includes('live-rulings') ? 'weekly' : 'monthly',
-        priority: ['justice/torts'].some(p => a.rel.includes(p)) ? '0.9' : '0.8'
+        priority: a.rel.includes('car-accidents') || a.rel.includes('medical-malpractice') ? '0.85' : (a.pillar === 'justice' ? '0.8' : '0.7')
     })),
     { loc: '/privacy/', freq: 'yearly', priority: '0.3' },
     { loc: '/terms/', freq: 'yearly', priority: '0.3' },
