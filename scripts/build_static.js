@@ -80,9 +80,21 @@ function buildPage(meta, bodyHtml, slug, allArticles) {
         "headline": title,
         "description": desc,
         "url": canonical,
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonical
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "damages.co.il - פורטל הפיצויים והזכויות בנזיקין"
+        },
         "publisher": {
             "@type": "Organization",
-            "name": "HUB האב מערכות מתקדמות בע\"מ"
+            "name": "HUB האב מערכות מתקדמות בע\"מ",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://damages.co.il/assets/favicon.png"
+            }
         },
         "datePublished": meta.created || "2026-08-06",
         "dateModified": meta.updated || "2026-08-06"
