@@ -458,9 +458,10 @@ a {
     font-weight: 600;
     border-radius: 8px;
     margin-bottom: 8px;
+    white-space: nowrap;
     transition: background 0.2s;
 }
-.mobile-drawer-links a:hover {
+.mobile-drawer-links a:hover, .mobile-drawer-links a.active, .nav-links a.active {
     background: rgba(212,175,55,0.15);
     color: var(--accent-gold);
 }
