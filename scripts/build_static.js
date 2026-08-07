@@ -14,7 +14,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { getHeaderHTML, getFooterHTML } = require('./layout');
+const { getHeaderHTML, getFooterHTML, getA11yHTML } = require('./layout');
 
 const contentDir = path.join(__dirname, '../public/content');
 const outputDir = path.join(__dirname, '../public');
@@ -173,10 +173,12 @@ function buildPage(meta, bodyHtml, slug, allArticles) {
 .copy-footer{text-align:center;color:var(--text-muted);font-size:.85rem;margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.05)}
 </style>
 </head>
+<body>
 ${getHeaderHTML('articles')}
 <main class="article-wrap">
 <a href="/" class="back-link">→ חזרה לדף הבית</a>
-<div class="meta-bar">
+${bodyHtml}
+<div class="meta-bar" style="margin-top:30px">
 ${(() => {
     // Build smart links for meta-tags — link to related article in same category/sefira
     const tags = [];
@@ -197,11 +199,10 @@ ${(() => {
     return tags.join('\n');
 })()}
 </div>
-${bodyHtml}
 <div style="margin-top:40px;padding:25px;background:rgba(212,175,55,0.08);border:1px solid var(--accent-gold);border-radius:14px;text-align:center">
 <h3 style="color:var(--accent-gold);margin-bottom:10px;font-size:1.3rem">⚖️ נפגעת באירוע דומה? לרוב מגיע לך פיצוי כספי</h3>
 <p style="color:var(--text-light);font-size:0.95rem;margin-bottom:20px">עורכי דין בפורטל עומדים לרשותך לבדיקת זכאות ראשונית ללא התחייבות.</p>
-<a href="https://wa.me/972587008133?text=שלום%2C%20קראתי%20את%20המדריך%20ואני%20מעוניין%20בבדיקת%20זכאות." target="_blank" class="btn btn-whatsapp pulse" style="display:inline-flex;align-items:center;gap:10px;padding:12px 30px;border-radius:25px;background:#25D366;color:#0a0a1e;font-weight:800;text-decoration:none;font-size:1.05rem">
+<a href="https://wa.me/972587008133?text=שלום%2C%20קראתי%20על%20${encodeURIComponent(title)}%20ואני%20מעוניין%20בבדיקת%20זכאות." target="_blank" class="btn btn-whatsapp pulse" style="display:inline-flex;align-items:center;gap:10px;padding:12px 30px;border-radius:25px;background:#25D366;color:#0a0a1e;font-weight:800;text-decoration:none;font-size:1.05rem">
 💬 בדיקת זכאות חינם בווצאפ עכשיו
 </a>
 </div>
@@ -209,49 +210,9 @@ ${bodyHtml}
 </main>
 ${getFooterHTML()}
 
-<div id="a11y-panel" class="a11y-panel" role="dialog" aria-label="תפריט נגישות">
-<button class="a11y-close" onclick="this.parentElement.classList.remove('open')" aria-label="סגור תפריט נגישות">&times;</button>
-<div class="a11y-title">♿ נגישות</div>
-<div class="a11y-section">גודל טקסט</div>
-<button class="a11y-btn" onclick="toggleA11y(this,'a11y-big-font','a11y-bigger-font')" data-feature="big-font">🔤 הגדלת טקסט</button>
-<button class="a11y-btn" onclick="toggleA11y(this,'a11y-bigger-font','a11y-big-font')" data-feature="bigger-font">🔠 טקסט גדול מאוד</button>
-<div class="a11y-section">תצוגה</div>
-<button class="a11y-btn" onclick="toggleA11y(this,'a11y-high-contrast')" data-feature="contrast">🌓 ניגודיות גבוהה</button>
-<button class="a11y-btn" onclick="toggleA11y(this,'a11y-highlight-links')" data-feature="links">🔗 הדגשת קישורים</button>
-<button class="a11y-btn" onclick="toggleA11y(this,'a11y-big-cursor')" data-feature="cursor">🖱️ סמן מוגדל</button>
-<div class="a11y-section">קריאה</div>
-<button class="a11y-btn" onclick="toggleA11y(this,'a11y-reading-guide')" data-feature="guide">📏 סרגל קריאה</button>
-<div style="margin-top:25px;padding-top:15px;border-top:1px solid rgba(212,175,55,.15)">
-<button class="a11y-btn" onclick="resetA11y()" style="background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.3);color:#ef4444">🔄 איפוס הגדרות</button>
-<a href="/accessibility/" class="a11y-btn" style="text-decoration:none;justify-content:center;margin-top:4px">📄 הצהרת נגישות מלאה</a>
-</div>
-</div>
-
-<button id="a11y-fab" onclick="document.getElementById('a11y-panel').classList.toggle('open')" aria-label="פתח תפריט נגישות" title="נגישות" style="position:fixed;bottom:20px;left:20px;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#1a1a3e,#0a0a1e);border:2px solid var(--accent-gold);color:var(--accent-gold);font-size:1.6rem;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(212,175,55,.3)">
-<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/></svg>
-</button>
+${getA11yHTML()}
 
 <script>
-function toggleA11y(btn, cls, removeCls) {
-    if (removeCls) document.body.classList.remove(removeCls);
-    document.body.classList.toggle(cls);
-    btn.classList.toggle('active');
-    saveA11y();
-}
-function resetA11y() {
-    document.body.className = document.body.className.replace(/a11y-[\w-]+/g, '').trim();
-    document.querySelectorAll('.a11y-btn.active').forEach(b => b.classList.remove('active'));
-    localStorage.removeItem('a11y');
-}
-function saveA11y() {
-    const classes = [...document.body.classList].filter(c => c.startsWith('a11y-'));
-    localStorage.setItem('a11y', JSON.stringify(classes));
-}
-try {
-    const saved = JSON.parse(localStorage.getItem('a11y') || '[]');
-    saved.forEach(c => document.body.classList.add(c));
-} catch(e) {}
-
 function trackLead(source, extra) {
     const lead = { ts: new Date().toISOString(), source: source || 'unknown', page: location.pathname, referrer: document.referrer || 'direct', extra: extra || null, ua: navigator.userAgent };
     try { navigator.sendBeacon('/api/lead', JSON.stringify(lead)); } catch(e) {
@@ -458,7 +419,7 @@ Source: ${a.meta.source || ''}
 Era: ${a.meta.era || ''}
 ---
 
-${a.rawBody}
+${a.body}
 `).join('\n\n========================================\n\n');
 
 fs.writeFileSync(path.join(outputDir, 'llms-full.txt'), llmsFullTxtContent);
@@ -495,21 +456,14 @@ function legalShell(title, desc, canonical, bodyHtml) {
 </style>
 </head>
 <body>
-<header class="main-header">
-<div class="container">
-<a href="/" style="text-decoration:none;color:inherit"><h1 style="margin:0;font-size:1.8rem">damages<span style="color:var(--accent-gold)">.co.il</span></h1></a>
-<nav class="nav-links">
-<a href="/">דף הבית</a>
-<a href="https://wa.me/972587008133" target="_blank" class="btn btn-whatsapp" style="padding:6px 16px;font-size:1rem;border-radius:20px">חירום 24/7</a>
-</nav>
-</div>
-</header>
+${getHeaderHTML()}
 <main class="legal-wrap" role="main">
 <a href="/" style="color:var(--accent-gold);text-decoration:none;font-weight:600">→ חזרה לדף הבית</a>
 ${bodyHtml}
 <div style="margin-top:30px;text-align:center;font-size:.85rem;color:var(--text-muted);opacity:.7">© ${YEAR} HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</div>
 </main>
-<footer class="main-footer"><p>© HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</p></footer>
+${getFooterHTML()}
+${getA11yHTML()}
 </body>
 </html>`;
 }

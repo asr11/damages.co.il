@@ -108,17 +108,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. Client-Side Search Engine
     const searchInput = document.getElementById('searchInput');
     const searchResults = document.getElementById('searchResults');
-    let searchIndex = [];
 
     if (searchInput && searchResults) {
-        // Fetch the index once
-        fetch('/search_index.json')
-            .then(res => res.json())
-            .then(data => {
-                searchIndex = data;
-            })
-            .catch(err => console.error('Failed to load search index:', err));
-
+        // Fetch the index only when search input is focused (lazy-load)
+        let searchIndex = [];
+        let searchIndexLoaded = false;
+        
+        function loadSearchIndex() {
+            if (searchIndexLoaded) return;
+            searchIndexLoaded = true;
+            fetch('/search_index.json')
+                .then(res => res.json())
+                .then(data => { searchIndex = data; })
+                .catch(err => console.error('Failed to load search index:', err));
+        }
+        
+        searchInput.addEventListener('focus', loadSearchIndex, { once: true });
         searchInput.addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
             

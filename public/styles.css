@@ -288,7 +288,7 @@ a {
     color: var(--text-muted);
 }
 
-/* Lead Capture Form */
+/* Lead CTA Section */
 .lead-capture {
     background: url('assets/hero_bg.webp') no-repeat center center/cover;
     position: relative;
@@ -325,6 +325,7 @@ a {
     color: var(--text-muted);
 }
 
+/* Calculator Form */
 .form-group {
     margin-bottom: 20px;
 }
@@ -350,12 +351,6 @@ a {
     background-color: var(--secondary-bg) !important;
     color: #ffffff !important;
     padding: 10px;
-}
-
-.submit-btn {
-    width: 100%;
-    padding: 16px;
-    font-size: 1.2rem;
 }
 
 /* Footer */
