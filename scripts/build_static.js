@@ -273,6 +273,13 @@ ${(() => {
 })()}
 </div>
 ${bodyHtml}
+<div style="margin-top:40px;padding:25px;background:rgba(212,175,55,0.08);border:1px solid var(--accent-gold);border-radius:14px;text-align:center">
+<h3 style="color:var(--accent-gold);margin-bottom:10px;font-size:1.3rem">⚖️ נפגעת באירוע דומה? לרוב מגיע לך פיצוי כספי</h3>
+<p style="color:var(--text-light);font-size:0.95rem;margin-bottom:20px">עורכי דין בפורטל עומדים לרשותך לבדיקת זכאות ראשונית ללא התחייבות.</p>
+<a href="https://wa.me/972587008133?text=שלום%2C%20קראתי%20את%20המדריך%20ואני%20מעוניין%20בבדיקת%20זכאות." target="_blank" class="btn btn-whatsapp pulse" style="display:inline-flex;align-items:center;gap:10px;padding:12px 30px;border-radius:25px;background:#25D366;color:#0a0a1e;font-weight:800;text-decoration:none;font-size:1.05rem">
+💬 בדיקת זכאות חינם בווצאפ עכשיו
+</a>
+</div>
 <div class="copy-footer">© HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</div>
 </main>
 <footer class="main-footer" style="border-top:1px solid rgba(212,175,55,.1);padding:30px 0;background:var(--secondary-bg)">
