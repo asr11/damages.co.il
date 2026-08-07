@@ -14,6 +14,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { getHeaderHTML, getFooterHTML } = require('./layout');
 
 const contentDir = path.join(__dirname, '../public/content');
 const outputDir = path.join(__dirname, '../public');
@@ -172,79 +173,7 @@ function buildPage(meta, bodyHtml, slug, allArticles) {
 .copy-footer{text-align:center;color:var(--text-muted);font-size:.85rem;margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.05)}
 </style>
 </head>
-<body>
-<header class="main-header">
-<div class="container" style="display:flex;align-items:center;justify-content:space-between">
-<div class="header-left" style="display:flex;align-items:center">
-<a href="/" class="logo" style="display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;color:inherit">
-<div style="font-size:1.8rem;font-weight:800;margin:0">damages<span style="color:var(--accent-gold)">.co.il</span></div>
-<span style="font-size:.8rem;color:var(--accent-gold);font-weight:600;margin-top:-3px">פורטל המידע והזכויות בנזיקין בישראל</span>
-</a>
-</div>
-
-<div class="header-center" style="flex:1;max-width:350px;margin:0 20px;display:none;position:relative" id="desktop-search">
-<div class="search-bar" style="position:relative;width:100%">
-<input type="text" id="searchInput" placeholder="חפש פסיקות, מאמרים או שאלות..." autocomplete="off" style="width:100%;padding:10px 40px 10px 15px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);background:rgba(0,0,0,0.3);color:white;font-family:inherit;font-size:0.9rem;transition:var(--transition-fast)">
-<svg style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;fill:var(--text-muted)" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-</div>
-<div id="searchResults" style="display:none;position:absolute;top:45px;right:0;left:0;background:var(--secondary-bg);border-radius:8px;border:1px solid var(--accent-gold);max-height:300px;overflow-y:auto;z-index:1001;box-shadow:0 10px 25px rgba(0,0,0,0.5)"></div>
-</div>
-
-<nav class="nav-links">
-<a href="/articles/" style="color:var(--accent-gold);font-weight:700">📚 כל המאמרים</a>
-<a href="/">דף הבית</a>
-<a href="/#services">התמחות</a>
-<a href="https://wa.me/972587008133?text=שלום%2C%20אני%20צריך%20עזרה%20דחופה%20בנושא%20נזיקין" target="_blank" class="btn btn-whatsapp pulse" style="padding:6px 16px;font-size:1rem;border-radius:20px;border:2px solid var(--whatsapp-green);background:#25D366;color:#0a0a1e;font-weight:800;white-space:nowrap">
-<svg style="width:20px;height:20px;vertical-align:middle;margin-left:6px;fill:#0a0a1e" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>חירום 24/7
-</a>
-</nav>
-
-<button class="hamburger-btn" onclick="document.getElementById('mobile-drawer').classList.toggle('open')" aria-label="תפריט ניווט">
-☰
-</button>
-</div>
-</header>
-
-<!-- Mobile Drawer Panel -->
-<div id="mobile-drawer" class="mobile-drawer">
-<div class="mobile-drawer-header">
-<div style="font-weight:800;font-size:1.3rem;color:var(--accent-gold)">damages.co.il</div>
-<button onclick="document.getElementById('mobile-drawer').classList.remove('open')" style="background:none;border:none;color:white;font-size:1.8rem;cursor:pointer">&times;</button>
-</div>
-<div class="mobile-drawer-links">
-<a href="/" onclick="document.getElementById('mobile-drawer').classList.remove('open')">🏠 דף הבית</a>
-<a href="/#calculator" onclick="document.getElementById('mobile-drawer').classList.remove('open')">🧮 מחשבון פיצויים</a>
-<a href="/#services" onclick="document.getElementById('mobile-drawer').classList.remove('open')">⚖️ תחומי התמחות</a>
-<a href="/#knowledge" onclick="document.getElementById('mobile-drawer').classList.remove('open')">📚 מאגר הידע</a>
-<a href="/privacy/" onclick="document.getElementById('mobile-drawer').classList.remove('open')">🔒 מדיניות פרטיות</a>
-<a href="/accessibility/" onclick="document.getElementById('mobile-drawer').classList.remove('open')">♿ הצהרת נגישות</a>
-</div>
-<div style="margin-top:auto;padding-top:20px">
-<a href="https://wa.me/972587008133?text=שלום%2C%20אני%20צריך%20ייעוץ%20משפטי" target="_blank" class="btn btn-whatsapp" style="display:block;text-align:center;padding:12px;border-radius:12px;background:#25D366;color:#0a0a1e;font-weight:800;text-decoration:none">
-💬 ייעוץ חירום בווצאפ
-</a>
-</div>
-</div>
-
-<!-- App-Level Bottom Navigation Bar -->
-<nav class="app-bottom-bar" aria-label="סרגל ניווט תחתון">
-<a href="/" class="app-bar-item">
-<span>🏠</span>
-<span>בית</span>
-</a>
-<a href="/#calculator" class="app-bar-item">
-<span>🧮</span>
-<span>מחשבון</span>
-</a>
-<a href="/#services" class="app-bar-item">
-<span>⚖️</span>
-<span>התמחות</span>
-</a>
-<a href="https://wa.me/972587008133?text=שלום%2C%20אני%20מגיע%20מסרגל%20הניווט%20באפליקציה" target="_blank" class="app-bar-item" style="color:#25D366">
-<span>💬</span>
-<span>ווצאפ</span>
-</a>
-</nav>
+${getHeaderHTML('articles')}
 <main class="article-wrap">
 <a href="/" class="back-link">→ חזרה לדף הבית</a>
 <div class="meta-bar">
@@ -278,19 +207,7 @@ ${bodyHtml}
 </div>
 <div class="copy-footer">© HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</div>
 </main>
-<footer class="main-footer" style="border-top:1px solid rgba(212,175,55,.1);padding:30px 0;background:var(--secondary-bg)">
-<div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;font-size:.85rem;color:var(--text-muted)">
-<div>© 2026 HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</div>
-<nav style="display:flex;gap:15px;align-items:center">
-<a href="/privacy/" style="color:var(--accent-gold);text-decoration:none;font-weight:600">מדיניות פרטיות</a> |
-<a href="/terms/" style="color:var(--accent-gold);text-decoration:none;font-weight:600">תנאי שימוש</a> |
-<a href="/accessibility/" style="color:var(--accent-gold);text-decoration:none;font-weight:600">הצהרת נגישות</a> |
-<a href="/llms.txt" target="_blank" style="color:var(--accent-gold);text-decoration:none;font-weight:600">🤖 תצוגת מכונות (llms.txt)</a> |
-<a href="https://wa.me/972587008133" target="_blank" style="color:#25D366;text-decoration:none;font-weight:700">💬 ייעוץ חירום</a>
-</nav>
-<p style="width:100%;font-size:.8rem;opacity:.7;margin-top:10px;text-align:center">המידע באתר אינו מהווה ייעוץ משפטי ואינו תחליף להתייעצות אישית עם עורך דין.</p>
-</div>
-</footer>
+${getFooterHTML()}`,-StartLine:176,TargetContent:
 
 <div id="a11y-panel" class="a11y-panel" role="dialog" aria-label="תפריט נגישות">
 <button class="a11y-close" onclick="this.parentElement.classList.remove('open')" aria-label="סגור תפריט נגישות">&times;</button>
