@@ -265,10 +265,10 @@ ${(() => {
         const match = allArticles.find(a => (a.meta.sefira === sef) && a.rel !== slug);
         return match ? `/${match.rel}/` : '/#knowledge';
     };
-    if (meta.sefira) tags.push(`<a href="${findBySefira(meta.sefira)}" class="meta-tag">✨ ספירה: ${meta.sefira}</a>`);
-    if (meta.category) tags.push(`<a href="${findByCategory(meta.category)}" class="meta-tag">📚 ${meta.category}</a>`);
-    if (meta.era) tags.push(`<a href="${findByCategory(meta.category)}" class="meta-tag">📅 תקופה: ${meta.era}</a>`);
-    if (meta.source) tags.push(`<a href="${findByCategory(meta.category)}" class="meta-tag">📜 מקור: ${meta.source}</a>`);
+    if (meta.sefira) tags.push(`<a href="${findBySefira(meta.sefira)}" class="meta-tag">✨ עיון בהלכות: ${meta.sefira}</a>`);
+    if (meta.category) tags.push(`<a href="${findByCategory(meta.category)}" class="meta-tag">📖 מדריך קשור: ${meta.category}</a>`);
+    if (meta.era) tags.push(`<a href="${findByCategory(meta.category)}" class="meta-tag">📅 תקדים מעודכן: ${meta.era}</a>`);
+    if (meta.source) tags.push(`<a href="${findByCategory(meta.category)}" class="meta-tag">📜 חקיקה ופסיקה: ${meta.source}</a>`);
     return tags.join('\n');
 })()}
 </div>
