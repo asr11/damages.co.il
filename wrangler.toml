@@ -1,0 +1,20 @@
+# ══════════════════════════════════════════════════
+#  damages.co.il — Unified System Config
+#  Cloudflare Pages Functions + D1 (hub-core)
+# ══════════════════════════════════════════════════
+
+name               = "damages-portal"
+compatibility_date = "2026-08-06"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "public"
+
+# ── D1 Database (shared hub-core) ────────────────
+[[d1_databases]]
+binding       = "DB"
+database_name = "hub-core"
+database_id   = "de33077c-fad2-48df-9f81-cdfa0f36945a"
+
+# ── Environment Variables ────────────────────────
+[vars]
+SITE_NAME        = "damages.co.il"
+TELEGRAM_CHAT_ID = "7726489288"

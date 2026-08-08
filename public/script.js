@@ -187,4 +187,56 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ── 6. Analytics & Lead Tracking ──────────────────
+    const sessionId = sessionStorage.getItem('dmg_sid') || (() => {
+        const sid = Date.now().toString(36) + Math.random().toString(36).slice(2);
+        sessionStorage.setItem('dmg_sid', sid);
+        return sid;
+    })();
+
+    // Track page view
+    try {
+        navigator.sendBeacon('/api/analytics', JSON.stringify({
+            path: location.pathname,
+            referrer: document.referrer || 'direct',
+            session_id: sessionId,
+        }));
+    } catch(e) {}
+
+    // Track WhatsApp clicks → lead
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('a[href*="wa.me"]');
+        if (link) {
+            const h1 = document.querySelector('h1');
+            try {
+                navigator.sendBeacon('/api/lead', JSON.stringify({
+                    source: 'whatsapp-click',
+                    page: location.pathname,
+                    article: h1 ? h1.textContent.trim() : '',
+                    referrer: document.referrer || 'direct',
+                    session_id: sessionId,
+                }));
+            } catch(e) {}
+        }
+    });
+
+    // Track calculator submissions → event
+    const calcForm = document.getElementById('calc-form');
+    if (calcForm) {
+        calcForm.addEventListener('submit', function() {
+            try {
+                navigator.sendBeacon('/api/analytics', JSON.stringify({
+                    path: location.pathname,
+                    referrer: document.referrer || 'direct',
+                    session_id: sessionId,
+                    event: 'calculator_submit',
+                    data: {
+                        type: document.getElementById('calcType')?.value,
+                        severity: document.getElementById('calcSeverity')?.value,
+                    },
+                }));
+            } catch(e) {}
+        });
+    }
 });
