@@ -1,22 +1,5 @@
 [
   {
-    "id": "justice/torts/car-accidents/whiplash-compensation",
-    "title": "Whiplash Compensation in Car Accidents",
-    "title_he": "פיצוי על צליפת שוט בתאונת דרכים",
-    "description": "Complete guide to maximum insurance compensation for whiplash injuries from car accidents in Israel",
-    "description_he": "המדריך המלא לקבלת פיצוי מקסימלי מחברת הביטוח על פגיעת צליפת שוט בתאונת דרכים",
-    "keywords": "whiplash, car accident, compensation, insurance, tort, neck injury, damages",
-    "keywords_he": "צליפת שוט, תאונת דרכים, פיצויים, חברת ביטוח, נזיקין, פגיעת צוואר, נזק גוף",
-    "category": "תאונות דרכים",
-    "sefira": "תפארת",
-    "pillar": "מ-משפט",
-    "era": "contemporary",
-    "source": "פקודת הנזיקין [נוסח חדש], חוק הפיצויים לנפגעי תאונות דרכים תשל״ה-1975",
-    "content_text": " פיצוי על צליפת שוט בתאונת דרכים הערה: מסמך פיילוט למטרות טכניות. טעון אישור עורך דין לפני פרסום. פגיעת צליפת שוט (Whiplash) היא אחת הפגיעות הנפוצות ביותר בתאונות דרכים... © HUB האב מערכות מתקדמות בע\"מ — כל הזכויות שמורות. ",
-    "verified": false,
-    "url": "/justice/torts/car-accidents/whiplash-compensation/"
-  },
-  {
     "id": "defense/legislation/tort-ordinance-overview",
     "title": "The Tort Ordinance [New Version] — Overview",
     "title_he": "פקודת הנזיקין [נוסח חדש] — סקירה כללית",
@@ -423,5 +406,22 @@
     "content_text": " חוק יסוד: כבוד האדם וחירותו מטרה \"זכויות היסוד של האדם בישראל מושתתות על ההכרה בערך האדם, בקדושת חייו ובהיותו בן-חורין, והן יכובדו ברוח העקרונות שבהכרזה על הקמת מדינת ישראל.\" עקרונות מרכזיים סעיף 1 — מטרת החוק חוק יסוד זה מטרתו להגן על כבוד האדם וחירותו, כדי לעגן בחוק יסוד את ערכיה של מדינת ישראל כמדינה יהודית ודמוקרטית. סעיף 2 — שמירה על החיים, הגוף והכבוד אין פוגעים בחייו, בגופו, או בכבודו של אדם באשר הוא אדם. סעיף 3 — הגנה על הקניין אין פוגעים בקניינו של אדם. סעיף 4 — הגנה על החיים, הגוף והכבוד כל אדם זכאי להגנה על חייו, על גופו ועל כבודו. סעיף 5 — חירות אישית אין נוטלים ואין מגבילים את חירותו של אדם במאסר, במעצר, בהסגרה או בכל דרך אחרת. סעיף 8 — פסקת ההגבלה אין פוגעים בזכויות שלפי חוק-יסוד זה אלא בחוק ההולם את ערכיה של מדינת ישראל, שנועד לתכלית ראויה, ובמידה שאינה עולה על הנדרש. משמעות לדיני נזיקין חוק יסוד זה מהווה את הבסיס החוקתי לתביעות נזיקין בישראל. הזכות לשלמות הגוף והכבוד מעוגנת כאן, ופגיעה בה מקימה עילה לפיצוי. --- © HUB האב מערכות מתקדמות בע\"מ — כל הזכויות שמורות.",
     "verified": false,
     "url": "/law/constitutional/basic-law-human-dignity/"
+  },
+  {
+    "id": "justice/torts/car-accidents/whiplash-compensation",
+    "title": "Whiplash Compensation in Car Accidents",
+    "title_he": "פיצוי על צליפת שוט בתאונת דרכים",
+    "description": "Complete guide to maximum insurance compensation for whiplash injuries from car accidents in Israel",
+    "description_he": "המדריך המלא לקבלת פיצוי מקסימלי מחברת הביטוח על פגיעת צליפת שוט בתאונת דרכים",
+    "keywords": "whiplash, car accident, compensation, insurance, tort, neck injury, damages",
+    "keywords_he": "צליפת שוט, תאונת דרכים, פיצויים, חברת ביטוח, נזיקין, פגיעת צוואר, נזק גוף",
+    "category": "תאונות דרכים",
+    "sefira": "תפארת",
+    "pillar": "מ-משפט",
+    "era": "contemporary",
+    "source": "פקודת הנזיקין [נוסח חדש], חוק הפיצויים לנפגעי תאונות דרכים תשל״ה-1975",
+    "content_text": " פיצוי על צליפת שוט בתאונת דרכים הערה: מסמך פיילוט למטרות טכניות. טעון אישור עורך דין לפני פרסום. פגיעת צליפת שוט (Whiplash) היא אחת הפגיעות הנפוצות ביותר בתאונות דרכים... © HUB האב מערכות מתקדמות בע\"מ — כל הזכויות שמורות. ",
+    "verified": false,
+    "url": "/justice/torts/car-accidents/whiplash-compensation/"
   }
 ]

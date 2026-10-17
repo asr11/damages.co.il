@@ -23,21 +23,19 @@
 .check-icon{color:#4caf50;font-size:1.2rem;min-width:24px}
 </style>
 
-<style id="ux-compact-fix">
-  /* ביטול רווחים עצומים והעלאת התוכן למסך הראשון */
-  .hero, header.hero, #hero, section:first-of-type {
+<style id="ux-visibility-fix">
+  /* ביטול שקיפות של אנימציות תקועות והעלאת התוכן מיד */
+  .fade-in-up, .fade-in, [class*="fade-"], .hero-text, .hero-stats, .hero-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+  .hero, #home {
     min-height: auto !important;
     height: auto !important;
-    padding-top: 1.2rem !important;
-    padding-bottom: 1.2rem !important;
+    padding: 2rem 0 1.5rem 0 !important;
   }
-  main, .container, .content, article {
-    margin-top: 0 !important;
-    padding-top: 0.5rem !important;
-  }
-  body {
-    padding-bottom: 70px !important;
-  }
+  body { padding-bottom: 70px !important; }
 </style>
 </head>
 <body>
@@ -54,7 +52,7 @@
 <a href="/" style="color:var(--accent-gold);text-decoration:none;font-weight:600">→ חזרה לדף הבית</a>
 
 <h1>תנאי שימוש</h1>
-<p class="legal-meta">עדכון אחרון: אוגוסט 2026</p>
+<p class="legal-meta">עדכון אחרון: אוקטובר 2026</p>
 <h2>1. כללי</h2>
 <p>השימוש באתר damages.co.il מהווה הסכמה לתנאים אלו. האתר מופעל על ידי <strong>HUB האב מערכות מתקדמות בע"מ</strong>.</p>
 <h2>2. המידע אינו ייעוץ משפטי</h2>
@@ -76,52 +74,5 @@
 <div style="margin-top:30px;text-align:center;font-size:.85rem;color:var(--text-muted);opacity:.7">© 2026 HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</div>
 </main>
 <footer class="main-footer"><p>© HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</p></footer>
-<nav class="app-bottom-bar" aria-label="סרגל ניווט תחתון">
-        <a href="/" class="app-bar-item active">
-            <span>🏠</span>
-            <span>בית</span>
-        </a>
-        <a href="/#calculator" class="app-bar-item">
-            <span>🧮</span>
-            <span>מחשבון</span>
-        </a>
-        <a href="/#services" class="app-bar-item">
-            <span>⚖️</span>
-            <span>התמחות</span>
-        </a>
-        <a href="https://wa.me/972587008133?text=שלום%2C%20אני%20מגיע%20מסרגל%20הניווט%20באפליקציה" target="_blank" class="app-bar-item" style="color:#25D366">
-            <span>💬</span>
-            <span>ווצאפ</span>
-        </a>
-    </nav>
-
-<script id="master-wa-router">
-document.addEventListener("DOMContentLoaded", function() {
-  const masterPhone = "972587008133";
-  function updateWaLinks() {
-    const pageTitle = document.title.split("|")[0].trim();
-    const pageUrl = window.location.href;
-    const calcResult = document.getElementById("calc-result") || document.querySelector(".calc-result, #result-amount");
-    const calcText = (calcResult && calcResult.innerText.trim()) ? "\n• נתוני מחשבון: " + calcResult.innerText.trim().replace(/\n+/g, " ") : "";
-    
-    const msg = "שלום, אני פונה מפורטל damages.co.il לבדיקת זכאות ומימוש זכויות:\n\n" +
-                "• עמוד מקור: " + pageTitle + "\n" +
-                "• קישור: " + pageUrl + calcText + "\n\n" +
-                "• מה קרה ומה אני מעוניין לתבוע?: " + "\n" +
-                "• מתי קרה האירוע?: ";
-                
-    const encoded = encodeURIComponent(msg);
-    document.querySelectorAll("a[href*=\"wa.me\"], a[href*=\"whatsapp.com\"]").forEach(a => {
-      a.href = "https://wa.me/" + masterPhone + "?text=" + encoded;
-    });
-  }
-  updateWaLinks();
-  document.addEventListener("click", function(e) {
-    if (e.target.closest("a[href*=\"wa.me\"], a[href*=\"whatsapp.com\"]")) {
-      updateWaLinks();
-    }
-  });
-});
-</script>
 </body>
 </html>
