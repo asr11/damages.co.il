@@ -89,37 +89,9 @@
     }
     </script>
 
-<style id="ux-compact-fix">
-  /* ביטול רווחים עצומים והעלאת התוכן למסך הראשון */
-  .hero, header.hero, #hero, section:first-of-type {
-    min-height: auto !important;
-    height: auto !important;
-    padding-top: 1.2rem !important;
-    padding-bottom: 1.2rem !important;
-  }
-  main, .container, .content, article {
-    margin-top: 0 !important;
-    padding-top: 0.5rem !important;
-  }
-  body {
-    padding-bottom: 70px !important;
-  }
-</style>
 
-<style id="ux-visibility-fix">
-  /* ביטול שקיפות של אנימציות תקועות והעלאת התוכן מיד */
-  .fade-in-up, .fade-in, [class*="fade-"], .hero-text, .hero-stats, .hero-content {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-  }
-  .hero, #home {
-    min-height: auto !important;
-    height: auto !important;
-    padding: 2rem 0 1.5rem 0 !important;
-  }
-  body { padding-bottom: 70px !important; }
-</style>
+
+
 </head>
 <body>
     <a href="#main-content" class="skip-nav" style="position:absolute;top:-999px;left:-999px;z-index:9999;background:var(--accent-gold);color:#0a0a1e;padding:10px 20px;font-weight:700;border-radius:0 0 8px 8px;" onfocus="this.style.top='0';this.style.left='50%';this.style.transform='translateX(-50%)'" onblur="this.style.top='-999px'">דלג לתוכן הראשי</a>
@@ -578,6 +550,22 @@
 
     <script src="/script.js"></script>
 
+
+
+<style id="ux-visibility-fix">
+  .fade-in-up, .fade-in, [class*="fade-"], .hero-text, .hero-stats, .hero-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+  .hero, #home {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 1.5rem 0 1.2rem 0 !important;
+  }
+  body { padding-bottom: 70px !important; }
+</style>
+
 <script id="master-wa-router">
 document.addEventListener("DOMContentLoaded", function() {
   const masterPhone = "972587008133";
@@ -586,24 +574,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const pageUrl = window.location.href;
     const calcResult = document.getElementById("calc-result") || document.querySelector(".calc-result, #result-amount");
     const calcText = (calcResult && calcResult.innerText.trim()) ? "\n• נתוני מחשבון: " + calcResult.innerText.trim().replace(/\n+/g, " ") : "";
-    
-    const msg = "שלום, אני פונה מפורטל damages.co.il לבדיקת זכאות ומימוש זכויות:\n\n" +
-                "• עמוד מקור: " + pageTitle + "\n" +
-                "• קישור: " + pageUrl + calcText + "\n\n" +
-                "• מה קרה ומה אני מעוניין לתבוע?: " + "\n" +
-                "• מתי קרה האירוע?: ";
-                
+    const msg = "שלום, אני פונה מפורטל damages.co.il לבדיקת זכאות ומימוש זכויות:\n\n• עמוד מקור: " + pageTitle + "\n• קישור: " + pageUrl + calcText + "\n\n• מה קרה ומה אני מעוניין לתבוע?: \n• מתי קרה האירוע?: ";
     const encoded = encodeURIComponent(msg);
     document.querySelectorAll("a[href*=\"wa.me\"], a[href*=\"whatsapp.com\"]").forEach(a => {
       a.href = "https://wa.me/" + masterPhone + "?text=" + encoded;
     });
   }
   updateWaLinks();
-  document.addEventListener("click", function(e) {
-    if (e.target.closest("a[href*=\"wa.me\"], a[href*=\"whatsapp.com\"]")) {
-      updateWaLinks();
-    }
-  });
+  document.addEventListener("click", e => { if (e.target.closest("a[href*=\"wa.me\"], a[href*=\"whatsapp.com\"]")) updateWaLinks(); });
 });
 </script>
 </body>

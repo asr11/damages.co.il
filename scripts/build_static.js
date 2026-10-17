@@ -331,6 +331,56 @@ document.addEventListener('click', function(e) {
 });
 </script>
 <script src="/script.js"></script>
+
+<style id="ux-visibility-fix">
+  .fade-in-up, .fade-in, [class*="fade-"], .hero-text, .hero-stats, .hero-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+  .hero, #home {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 1.5rem 0 1.2rem 0 !important;
+  }
+  body { padding-bottom: 70px !important; }
+</style>
+<nav class="app-bottom-bar" aria-label="סרגל ניווט תחתון">
+        <a href="/" class="app-bar-item active">
+            <span>🏠</span>
+            <span>בית</span>
+        </a>
+        <a href="/#calculator" class="app-bar-item">
+            <span>🧮</span>
+            <span>מחשבון</span>
+        </a>
+        <a href="/#services" class="app-bar-item">
+            <span>⚖️</span>
+            <span>התמחות</span>
+        </a>
+        <a href="https://wa.me/972587008133?text=שלום%2C%20אני%20מגיע%20מסרגל%20הניווט%20באפליקציה" target="_blank" class="app-bar-item" style="color:#25D366">
+            <span>💬</span>
+            <span>ווצאפ</span>
+        </a>
+    </nav>
+<script id="master-wa-router">
+document.addEventListener("DOMContentLoaded", function() {
+  const masterPhone = "972587008133";
+  function updateWaLinks() {
+    const pageTitle = document.title.split("|")[0].trim();
+    const pageUrl = window.location.href;
+    const calcResult = document.getElementById("calc-result") || document.querySelector(".calc-result, #result-amount");
+    const calcText = (calcResult && calcResult.innerText.trim()) ? "\n• נתוני מחשבון: " + calcResult.innerText.trim().replace(/\n+/g, " ") : "";
+    const msg = "שלום, אני פונה מפורטל damages.co.il לבדיקת זכאות ומימוש זכויות:\n\n• עמוד מקור: " + pageTitle + "\n• קישור: " + pageUrl + calcText + "\n\n• מה קרה ומה אני מעוניין לתבוע?: \n• מתי קרה האירוע?: ";
+    const encoded = encodeURIComponent(msg);
+    document.querySelectorAll("a[href*=\"wa.me\"], a[href*=\"whatsapp.com\"]").forEach(a => {
+      a.href = "https://wa.me/" + masterPhone + "?text=" + encoded;
+    });
+  }
+  updateWaLinks();
+  document.addEventListener("click", e => { if (e.target.closest("a[href*=\"wa.me\"], a[href*=\"whatsapp.com\"]")) updateWaLinks(); });
+});
+</script>
 </body>
 </html>`;
 }
@@ -473,6 +523,56 @@ ${blogCardsHtml}
 </div>
 </footer>
 <script src="/script.js"></script>
+
+<style id="ux-visibility-fix">
+  .fade-in-up, .fade-in, [class*="fade-"], .hero-text, .hero-stats, .hero-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+  .hero, #home {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 1.5rem 0 1.2rem 0 !important;
+  }
+  body { padding-bottom: 70px !important; }
+</style>
+<nav class="app-bottom-bar" aria-label="סרגל ניווט תחתון">
+        <a href="/" class="app-bar-item active">
+            <span>🏠</span>
+            <span>בית</span>
+        </a>
+        <a href="/#calculator" class="app-bar-item">
+            <span>🧮</span>
+            <span>מחשבון</span>
+        </a>
+        <a href="/#services" class="app-bar-item">
+            <span>⚖️</span>
+            <span>התמחות</span>
+        </a>
+        <a href="https://wa.me/972587008133?text=שלום%2C%20אני%20מגיע%20מסרגל%20הניווט%20באפליקציה" target="_blank" class="app-bar-item" style="color:#25D366">
+            <span>💬</span>
+            <span>ווצאפ</span>
+        </a>
+    </nav>
+<script id="master-wa-router">
+document.addEventListener("DOMContentLoaded", function() {
+  const masterPhone = "972587008133";
+  function updateWaLinks() {
+    const pageTitle = document.title.split("|")[0].trim();
+    const pageUrl = window.location.href;
+    const calcResult = document.getElementById("calc-result") || document.querySelector(".calc-result, #result-amount");
+    const calcText = (calcResult && calcResult.innerText.trim()) ? "\n• נתוני מחשבון: " + calcResult.innerText.trim().replace(/\n+/g, " ") : "";
+    const msg = "שלום, אני פונה מפורטל damages.co.il לבדיקת זכאות ומימוש זכויות:\n\n• עמוד מקור: " + pageTitle + "\n• קישור: " + pageUrl + calcText + "\n\n• מה קרה ומה אני מעוניין לתבוע?: \n• מתי קרה האירוע?: ";
+    const encoded = encodeURIComponent(msg);
+    document.querySelectorAll("a[href*=\"wa.me\"], a[href*=\"whatsapp.com\"]").forEach(a => {
+      a.href = "https://wa.me/" + masterPhone + "?text=" + encoded;
+    });
+  }
+  updateWaLinks();
+  document.addEventListener("click", e => { if (e.target.closest("a[href*=\"wa.me\"], a[href*=\"whatsapp.com\"]")) updateWaLinks(); });
+});
+</script>
 </body>
 </html>`;
 
@@ -606,6 +706,56 @@ ${bodyHtml}
 <div style="margin-top:30px;text-align:center;font-size:.85rem;color:var(--text-muted);opacity:.7">© ${YEAR} HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</div>
 </main>
 <footer class="main-footer"><p>© HUB האב מערכות מתקדמות בע"מ — כל הזכויות שמורות</p></footer>
+
+<style id="ux-visibility-fix">
+  .fade-in-up, .fade-in, [class*="fade-"], .hero-text, .hero-stats, .hero-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+  .hero, #home {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 1.5rem 0 1.2rem 0 !important;
+  }
+  body { padding-bottom: 70px !important; }
+</style>
+<nav class="app-bottom-bar" aria-label="סרגל ניווט תחתון">
+        <a href="/" class="app-bar-item active">
+            <span>🏠</span>
+            <span>בית</span>
+        </a>
+        <a href="/#calculator" class="app-bar-item">
+            <span>🧮</span>
+            <span>מחשבון</span>
+        </a>
+        <a href="/#services" class="app-bar-item">
+            <span>⚖️</span>
+            <span>התמחות</span>
+        </a>
+        <a href="https://wa.me/972587008133?text=שלום%2C%20אני%20מגיע%20מסרגל%20הניווט%20באפליקציה" target="_blank" class="app-bar-item" style="color:#25D366">
+            <span>💬</span>
+            <span>ווצאפ</span>
+        </a>
+    </nav>
+<script id="master-wa-router">
+document.addEventListener("DOMContentLoaded", function() {
+  const masterPhone = "972587008133";
+  function updateWaLinks() {
+    const pageTitle = document.title.split("|")[0].trim();
+    const pageUrl = window.location.href;
+    const calcResult = document.getElementById("calc-result") || document.querySelector(".calc-result, #result-amount");
+    const calcText = (calcResult && calcResult.innerText.trim()) ? "\n• נתוני מחשבון: " + calcResult.innerText.trim().replace(/\n+/g, " ") : "";
+    const msg = "שלום, אני פונה מפורטל damages.co.il לבדיקת זכאות ומימוש זכויות:\n\n• עמוד מקור: " + pageTitle + "\n• קישור: " + pageUrl + calcText + "\n\n• מה קרה ומה אני מעוניין לתבוע?: \n• מתי קרה האירוע?: ";
+    const encoded = encodeURIComponent(msg);
+    document.querySelectorAll("a[href*=\"wa.me\"], a[href*=\"whatsapp.com\"]").forEach(a => {
+      a.href = "https://wa.me/" + masterPhone + "?text=" + encoded;
+    });
+  }
+  updateWaLinks();
+  document.addEventListener("click", e => { if (e.target.closest("a[href*=\"wa.me\"], a[href*=\"whatsapp.com\"]")) updateWaLinks(); });
+});
+</script>
 </body>
 </html>`;
 }
