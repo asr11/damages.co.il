@@ -47,6 +47,23 @@
 .back-link:hover{text-decoration:underline}
 .copy-footer{text-align:center;color:var(--text-muted);font-size:.85rem;margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.05)}
 </style>
+
+<style id="ux-compact-fix">
+  /* ביטול רווחים עצומים והעלאת התוכן למסך הראשון */
+  .hero, header.hero, #hero, section:first-of-type {
+    min-height: auto !important;
+    height: auto !important;
+    padding-top: 1.2rem !important;
+    padding-bottom: 1.2rem !important;
+  }
+  main, .container, .content, article {
+    margin-top: 0 !important;
+    padding-top: 0.5rem !important;
+  }
+  body {
+    padding-bottom: 70px !important;
+  }
+</style>
 </head>
 <body>
 <header class="main-header">

@@ -22,6 +22,23 @@
 .check-item{display:flex;align-items:flex-start;gap:10px;margin:12px 0}
 .check-icon{color:#4caf50;font-size:1.2rem;min-width:24px}
 </style>
+
+<style id="ux-compact-fix">
+  /* ביטול רווחים עצומים והעלאת התוכן למסך הראשון */
+  .hero, header.hero, #hero, section:first-of-type {
+    min-height: auto !important;
+    height: auto !important;
+    padding-top: 1.2rem !important;
+    padding-bottom: 1.2rem !important;
+  }
+  main, .container, .content, article {
+    margin-top: 0 !important;
+    padding-top: 0.5rem !important;
+  }
+  body {
+    padding-bottom: 70px !important;
+  }
+</style>
 </head>
 <body>
 <header class="main-header">
